@@ -1,0 +1,15 @@
+<!-- Initialize a Vivere component -->
+<!-- Create a property called count, initialized to 0 -->
+<div
+  v-component
+  v-data:count="0"
+>
+  <!-- Register click listener to decrement count -->
+  <button v-event:click="count -= 1"> - </button>
+
+  <!-- Display the count -->
+  <p v-text="count"></p>
+
+  <!-- Register click listener to increment count -->
+  <button v-event:click="count += 1"> + </button>
+</div>

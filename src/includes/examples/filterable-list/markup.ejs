@@ -1,0 +1,43 @@
+<!-- Our list component controls whether we're currently `filtering` -->
+<div
+  v-component
+  v-data:filtering="false"
+>
+  <!-- Buttons that toggle our filter on or off -->
+  <button v-event:click="filtering = false"> Off </button>
+  <button v-event:click="filtering = true"> On </button>
+  <ul>
+    <!-- A set of duplicate list item components -->
+    <!-- · Each passed JSON data from the server -->
+    <!-- · But with identical v-if directives -->
+    <!-- · And can read the list's `filtering` property -->
+    <li
+      v-component="list-item"
+      v-data:record='{ "id": 1, "title": "Item A" }'
+      v-pass:filtering
+      v-if="shouldShow"
+      v-text="record.title"
+    ></li>
+    <li
+      v-component="list-item"
+      v-data:record='{ "id": 2, "title": "Item B" }'
+      v-pass:filtering
+      v-if="shouldShow"
+      v-text="record.title"
+    ></li>
+    <li
+      v-component="list-item"
+      v-data:record='{ "id": 3, "title": "Item C" }'
+      v-pass:filtering
+      v-if="shouldShow"
+      v-text="record.title"
+    ></li>
+    <li
+      v-component="list-item"
+      v-data:record='{ "id": 4, "title": "Item D" }'
+      v-pass:filtering
+      v-if="shouldShow"
+      v-text="record.title"
+    ></li>
+  </ul>
+</div>

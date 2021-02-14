@@ -1,5 +1,6 @@
 module.exports = ({ env }) => {
   const plugins = {
+    'postcss-import': {},
     tailwindcss: {},
     autoprefixer: {},
   };

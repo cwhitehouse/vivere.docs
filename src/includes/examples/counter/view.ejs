@@ -1,0 +1,18 @@
+<div
+  v-component
+  v-data:count="0"
+  class="flex items-center w-full m-6"
+>
+  <button
+    v-event:click="count -= 1"
+    class="border border-solid border-gray-400 rounded shadow px-4 py-2 hover:shadow-lg focus:shadow-none"
+  >-</button>
+  <p
+    v-text="count"
+    class="w-64 text-center"
+  ></p>
+  <button
+    v-event:click="count += 1"
+    class="border border-solid border-gray-400 rounded shadow px-4 py-2 hover:shadow-lg focus:shadow-none"
+  >+</button>
+</div>

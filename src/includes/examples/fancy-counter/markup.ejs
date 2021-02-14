@@ -1,0 +1,19 @@
+<!-- Initialize a named Vivere component -->
+<div v-component="fancy-counter">
+  <!-- Register click listener to decrement count -->
+  <!-- Conditionally disable the button -->
+  <button
+    v-event:click="decrementCount"
+    v-disabled="!canDecrement"
+  > - </button>
+
+  <!-- Display the count via a computed property -->
+  <!-- Conditionally add a class to the element -->
+  <p
+    v-text="countString"
+    v-class:text-red="countHigh"
+  ></p>
+
+  <!-- Register click listener to increment count -->
+  <button v-event:click="incrementCount"> + </button>
+</div>

@@ -1,0 +1,1 @@
+// No Javascript required for anonymous components!

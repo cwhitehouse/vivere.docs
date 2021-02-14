@@ -1,0 +1,27 @@
+const ListItem = {
+  // While not strictly necessary, it can be nice to
+  // call out that we have a property named record
+  data() {
+    return {
+      record: null,
+    };
+  },
+
+  // Inherit the `filtering` property from
+  // this component's parent
+  passed: {
+    filtering: { default: false },
+  },
+
+  // Always show if we're not filtering, otherwise
+  // only show records with odd id's
+  computed: {
+    shouldShow() {
+      const { filtering, record } = this;
+      if (filtering) return record.id % 2 !== 0;
+      return true;
+    },
+  },
+};
+
+Vivere.register('ListItem', ListItem);

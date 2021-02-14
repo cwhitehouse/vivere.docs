@@ -1,0 +1,85 @@
+.markdown h1 {
+  @apply text-4xl;
+}
+.markdown > h1 + h4 {
+  @apply pt-2;
+}
+
+.markdown > h2 {
+  @apply text-2xl;
+}
+.markdown > h2 + p {
+  @apply pt-4;
+}
+
+
+.markdown > h3 {
+  @apply text-xl text-gray-900;
+}
+
+.markdown > h4 {
+  @apply text-lg text-gray-700;
+}
+.markdown > h4 + h2 {
+  @apply pt-12;
+}
+.markdown > h4 + p {
+  @apply pt-3;
+}
+
+.markdown > p {
+  @apply font-light;
+}
+.markdown > p + h2 {
+  @apply pt-16;
+}
+.markdown > p + h4 {
+  @apply pt-10;
+}
+.markdown > p + p {
+  @apply pt-6;
+}
+.markdown > p + pre {
+  @apply mt-6;
+}
+
+.markdown > p > code, .markdown > code {
+  @apply text-sm font-mono font-medium text-indigo-800 bg-indigo-100 rounded px-1;
+  padding-top: 2px; padding-bottom: 2px;
+}
+
+.markdown pre {
+  @apply text-sm font-mono font-medium text-indigo-900 leading-loose bg-gray-100 font-light rounded px-6 py-4;
+}
+.markdown pre .token.tag, .markdown pre .token.boolean {
+  @apply text-red-500;
+}
+.markdown pre .token.function {
+  @apply text-blue-500;
+}
+.markdown pre .token.attr-value, .markdown pre .token.string {
+  @apply text-orange-500;
+}
+.markdown pre .token.number {
+  @apply text-pink-400;
+}
+.markdown pre .token.keyword, .markdown pre .token.punctuation {
+  @apply text-indigo-600;
+}
+.markdown pre .token.operator, .markdown pre .token.attr-name {
+  @apply text-purple-600;
+}
+.markdown pre .token.comment {
+  @apply text-gray-600;
+}
+
+.markdown pre + h2 {
+  @apply mt-16;
+}
+
+.markdown .example {
+  @apply mt-8;
+}
+.markdown .example + h2 {
+  @apply mt-20;
+}

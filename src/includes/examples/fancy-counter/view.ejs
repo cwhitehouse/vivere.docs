@@ -1,0 +1,19 @@
+<div
+  v-component="fancy-counter"
+  class="flex items-center w-full m-6"
+>
+  <button
+    v-event:click="decrementCount"
+    v-disabled="!canDecrement"
+    class="border border-solid border-gray-400 rounded shadow px-4 py-2 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed"
+  >-</button>
+  <p
+    v-text="countString"
+    v-class:text-red-700="countHigh"
+    class="w-64 text-center"
+  ></p>
+  <button
+    v-event:click="incrementCount"
+    class="border border-solid border-gray-400 rounded shadow px-4 py-2 hover:shadow-lg active:shadow-none"
+  >+</button>
+</div>
