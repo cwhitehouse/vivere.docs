@@ -22,8 +22,7 @@
   </div>
   <% items.forEach(item => { %>
     <%- include('/examples/to-do-list/item', { toDo: item }) %>
-  <% }); %>
-  <button
+  <% }); %><button
     class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed mt-6"
   >Create New To-Do</button>
 </div>

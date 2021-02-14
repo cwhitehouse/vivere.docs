@@ -46,14 +46,18 @@
       <%- include(`/examples/${name}/view`) %>
     </div>
     <div v-if="tab === 'html'">
-      ```html
-      <%= include(`/examples/${name}/markup`) %><
-      ```
+
+```html
+<%- include(`/examples/${name}/markup`) %>
+```
+
     </div>
     <div v-if="tab === 'js'">
-      ```js
-      <%= include(`/examples/${name}/script.js`) %>
-      ```
+
+```js
+<%- include(`/examples/${name}/script.js`) %>
+```
+
     </div>
   </div>
 </div>

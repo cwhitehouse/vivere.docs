@@ -1,7 +1,6 @@
 module.exports = {
-  minify: (content) => {
-    return content.replace(/\n/g, "")
-      .replace(/[\t ]+\</g, "<")
+  compress: (content) => {
+    return content.replace(/[\t ]+\</g, "<")
       .replace(/\>[\t ]+\</g, "><")
       .replace(/\>[\t ]+$/g, ">");
   },
