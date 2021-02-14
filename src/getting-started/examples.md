@@ -31,4 +31,4 @@ This is a great opportunity to use something like `partials` from `Rails` to mak
 
 Putting together all of our component magic let's us set up very interactive and involved interface. Here we have a list of to-do's generated from a server, with the ability to check them off, delete them, edit them, or create a new one.
 
-<%- irenderer.minify(nclude('/examples/example', { name: 'to-do-list' })) %>
+<%- renderer.minify(include('/examples/example', { name: 'to-do-list' })) %>
