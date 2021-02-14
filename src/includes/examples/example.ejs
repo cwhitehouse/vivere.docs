@@ -3,61 +3,57 @@
   v-data:tab="view"
   class="example"
 >
-<div class="flex items-center">
-<button
-  v-event:click="tab = 'view'"
-  v-class:bg-white="tab === 'view'"
-  v-class:bg-gray-200="tab !== 'view'"
-  v-class:hover:bg-indigo-100="tab !== 'view'"
-  v-class:hover:border-indigo-100="tab !== 'view'"
-  v-class:text-gray-600="tab !== 'view'"
-  class="w-32 py-2 border-l-2 border-t-2 border-r-2 border-gray-200 rounded-t"
->
-<p>Example</p>
-</button>
-<button
-  v-event:click="tab = 'html'"
-  v-class:bg-white="tab === 'html'"
-  v-class:bg-gray-200="tab !== 'html'"
-  v-class:hover:bg-indigo-100="tab !== 'html'"
-  v-class:hover:border-indigo-100="tab !== 'html'"
-  v-class:text-gray-600="tab !== 'html'"
-  class="w-32 py-2 border-l-2 border-t-2 border-r-2 border-gray-200 rounded-t ml-1"
->
-<p>HTML</p>
-</button>
-<button
-  v-event:click="tab = 'js'"
-  v-class:bg-white="tab === 'js'"
-  v-class:bg-gray-200="tab !== 'js'"
-  v-class:hover:bg-indigo-100="tab !== 'js'"
-  v-class:hover:border-indigo-100="tab !== 'js'"
-  v-class:text-gray-600="tab !== 'js'"
-  class="w-32 py-2 border-l-2 border-t-2 border-r-2 border-gray-200 rounded-t ml-1"
->
-<p>Javascript</p>
-</button>
-</div>
-<div
-  class="border-2 border-gray-200 rounded p-2"
-  style="margin-top: -2px;"
->
-<div v-if="tab === 'view'">
-<%- include(`/examples/${name}/view`) %>
-</div>
-<div v-if="tab === 'html'">
-
-```html
-<%- include(`/examples/${name}/markup`) %><
-```
-
-</div>
-<div v-if="tab === 'js'">
-
-```js
-<%- include(`/examples/${name}/script.js`) %>
-```
-
-</div>
-</div>
+  <div class="flex items-center">
+    <button
+      v-event:click="tab = 'view'"
+      v-class:bg-white="tab === 'view'"
+      v-class:bg-gray-200="tab !== 'view'"
+      v-class:hover:bg-indigo-100="tab !== 'view'"
+      v-class:hover:border-indigo-100="tab !== 'view'"
+      v-class:text-gray-600="tab !== 'view'"
+      class="w-32 py-2 border-l-2 border-t-2 border-r-2 border-gray-200 rounded-t"
+    >
+      <p>Example</p>
+    </button>
+    <button
+      v-event:click="tab = 'html'"
+      v-class:bg-white="tab === 'html'"
+      v-class:bg-gray-200="tab !== 'html'"
+      v-class:hover:bg-indigo-100="tab !== 'html'"
+      v-class:hover:border-indigo-100="tab !== 'html'"
+      v-class:text-gray-600="tab !== 'html'"
+      class="w-32 py-2 border-l-2 border-t-2 border-r-2 border-gray-200 rounded-t ml-1"
+    >
+      <p>HTML</p>
+    </button>
+    <button
+      v-event:click="tab = 'js'"
+      v-class:bg-white="tab === 'js'"
+      v-class:bg-gray-200="tab !== 'js'"
+      v-class:hover:bg-indigo-100="tab !== 'js'"
+      v-class:hover:border-indigo-100="tab !== 'js'"
+      v-class:text-gray-600="tab !== 'js'"
+      class="w-32 py-2 border-l-2 border-t-2 border-r-2 border-gray-200 rounded-t ml-1"
+    >
+      <p>Javascript</p>
+    </button>
+  </div>
+  <div
+    class="border-2 border-gray-200 rounded p-2"
+    style="margin-top: -2px;"
+  >
+    <div v-if="tab === 'view'">
+      <%- include(`/examples/${name}/view`) %>
+    </div>
+    <div v-if="tab === 'html'">
+      ```html
+      <%= include(`/examples/${name}/markup`) %><
+      ```
+    </div>
+    <div v-if="tab === 'js'">
+      ```js
+      <%= include(`/examples/${name}/script.js`) %>
+      ```
+    </div>
+  </div>
 </div>

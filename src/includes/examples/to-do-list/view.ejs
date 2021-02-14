@@ -1,0 +1,29 @@
+<%
+  const items = [
+    { id: 1, title: 'Learn Vivere' },
+    { id: 2, title: 'Master available directives' },
+    { id: 3, title: 'Master available options for named components' },
+  ];
+%>
+
+<div class="m-8">
+  <div class="flex items-center pb-2">
+    <input
+      type="text"
+      placeholder="Search to-dos..."
+      class="h-8 w-64 rounded px-3 border-2 border-gray-300"
+    >
+    <select class="h-8 w-32 rounded border-2 border-gray-300 ml-2">
+      <option value="idAsc">id: 1-9</option>
+      <option value="idDesc">id: 9-1</option>
+      <option value="titleAsc">title: A-Z</option>
+      <option value="titleDesc">title: Z-A</option>
+    </select>
+  </div>
+  <% items.forEach(item => { %>
+    <%- include('/examples/to-do-list/item', { toDo: item }) %>
+  <% }); %>
+  <button
+    class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed mt-6"
+  >Create New To-Do</button>
+</div>

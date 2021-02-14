@@ -14,7 +14,8 @@ module.exports = function(eleventyConfig) {
       input: "src",
       includes: "includes",
       layouts: "layouts",
-      output: "dist"
+      output: "dist",
+      data: "data",
     },
     markdownTemplateEngine: 'ejs',
   };
