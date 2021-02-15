@@ -1,6 +1,11 @@
 // docs: https://www.11ty.io/docs/config/
 
 module.exports = function(eleventyConfig) {
+  const markdownIt = require("markdown-it");
+  const markdownItAnchor = require("markdown-it-anchor");
+  const md = markdownIt({ html: true }).use(markdownItAnchor);
+  eleventyConfig.setLibrary("md", md);
+
   eleventyConfig.setUseGitIgnore(false);
 
   eleventyConfig.addWatchTarget("src/assets");

@@ -7,11 +7,14 @@ module.exports = {
   },
 
   fileList: (directory) => {
-    console.log();
-    console.log('loading fileList...');
-    console.log(directory);
-    console.log('-');
-
     return fs.readdirSync(directory);
-  }
+  },
+
+  titleize: (string) => {
+    return string.split('-').map(s => `${s[0].toUpperCase()}${s.slice(1)}`).join(' ');
+  },
+
+  upcase: (string) => {
+      return string.split('-').join(' ').toUpperCase();
+  },
 };
