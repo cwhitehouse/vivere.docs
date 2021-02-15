@@ -7,11 +7,24 @@ export default {
     };
   },
 
+  passed: {
+    filterText: { default: null },
+  },
+
   computed: {
     validTitle() {
       const { title } = this;
-      return title != null
-        && title.length > 0;
+      return !!title?.trim();
+    },
+
+    matchesFilter() {
+      const { filterText, toDo } = this;
+      const { title } = toDo;
+
+      if (!!filterText?.trim())
+        return title.toLowerCase().includes(filterText.toLowerCase());
+
+      return true;
     },
   },
 

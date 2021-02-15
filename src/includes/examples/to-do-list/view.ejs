@@ -2,27 +2,68 @@
   const items = [
     { id: 1, title: 'Learn Vivere' },
     { id: 2, title: 'Master available directives' },
-    { id: 3, title: 'Master available options for named components' },
+    { id: 3, title: 'Master all options for named components' },
   ];
 %>
 
-<div class="m-8">
+<div
+  v-component="to-do-list"
+  class="m-8"
+>
   <div class="flex items-center pb-2">
     <input
+      v-sync="filterText"
       type="text"
       placeholder="Search to-dos..."
       class="h-8 w-64 rounded px-3 border-2 border-gray-300"
     >
-    <select class="h-8 w-32 rounded border-2 border-gray-300 ml-2">
+    <select
+      v-sync="sortMode"
+      class="h-8 w-32 rounded border-2 border-gray-300 ml-2"
+    >
       <option value="idAsc">id: 1-9</option>
       <option value="idDesc">id: 9-1</option>
       <option value="titleAsc">title: A-Z</option>
       <option value="titleDesc">title: Z-A</option>
     </select>
   </div>
-  <% items.forEach(item => { %>
-    <%- include('/examples/to-do-list/item', { toDo: item }) %>
-  <% }); %><button
-    class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed mt-6"
-  >Create New To-Do</button>
+  <div
+    v-sort="orderBy"
+    v-filter="'matchesFilter'"
+    v-ref="items"
+  >
+    <% items.forEach(item => { %>
+      <%- include('/examples/to-do-list/item', { toDo: item }) %>
+    <% }); %>
+  </div>
+  <div class="mt-6">
+    <button
+      v-if="!creating"
+      v-event:click="creating = true"
+      class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none"
+    >Create New To-Do</button>
+    <div
+      v-if="creating"
+      class="flex items-center w-full"
+    >
+      <input
+        v-sync="title"
+        v-ref="title"
+        v-event:keydown.enter="create"
+        v-event:keydown.escape="creating = false"
+        type="text"
+        placeholder="Choose a title..."
+        class="h-8 flex-1 rounded px-3 border-2 border-gray-300 mr-2"
+      ></input>
+      <button
+        v-event:click="create"
+        v-disabled="!validTitle"
+        class="text-teal-600 border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none mr-2"
+      >Save</button>
+      <button
+        v-event:click="creating = false"
+        class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none"
+      >Cancel</button>
+    </div>
+  </div>
 </div>

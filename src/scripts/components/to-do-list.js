@@ -1,6 +1,59 @@
+let id = 3;
+
+export default {
+  data() {
+    return {
+      filterText: null,
+      sortMode: null,
+      creating: false,
+      title: null,
+    }
+  },
+
+  computed: {
+    orderBy() {
+      const { sortMode } = this;
+
+      switch (sortMode) {
+        case 'idAsc':
+          return [['toDo.id'], ['asc']];
+        case 'idDesc':
+          return [['toDo.id'], ['desc']];
+        case 'titleAsc':
+          return [['toDo.title'], ['asc']];
+        case 'titleDesc':
+          return [['toDo.title'], ['desc']];
+        default:
+          return null;
+      };
+    },
+
+    validTitle() {
+      const { title } = this;
+      return !!title?.trim();
+    },
+  },
+
+  watch: {
+    creating() {
+      if (this.creating) {
+        this.title = null;
+        this.$nextRender(() => { this.$refs.title.focus(); });
+      }
+    },
+  },
+
+  methods: {
+    create() {
+      const { title, validTitle } = this;
+
+      if (!validTitle) return;
+
+      id += 1;
+      const html = `
 <div
   v-component="to-do-item"
-  v-data:to-do="<%= JSON.stringify(toDo) %>"
+  v-data:to-do='${JSON.stringify({ id, title })}'
   v-pass:filter-text
   class="flex items-stretch h-12"
 >
@@ -70,3 +123,10 @@
     >Cancel</button>
   </div>
 </div>
+      `;
+
+      this.$attach(html, 'items');
+      this.creating = false;
+    },
+  }
+};
