@@ -15,6 +15,7 @@ html {
 }
 
 * { @apply transition-all; }
+*[hidden] { display: none; }
 
 
 /* LAYOUTS */
@@ -30,13 +31,6 @@ html {
   .k-grid {
     @apply grid;
   }
-}
-
-
-/* VIVERE HELPERS */
-
-*[v-if] {
-  display: none;
 }
 
 

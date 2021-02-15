@@ -1,4 +1,4 @@
-export default {
+const FancyCounter = {
   // Initialize a data attribute called count
   data() {
     return {
@@ -41,3 +41,5 @@ export default {
     },
   }
 };
+
+Vivere.register('FancyCounter', FancyCounter);

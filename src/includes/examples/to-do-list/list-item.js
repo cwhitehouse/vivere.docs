@@ -1,4 +1,4 @@
-export default {
+const ListItem = {
   data() {
     return {
       // While not strictly necessary, it can be nice to
@@ -66,3 +66,5 @@ export default {
     },
   },
 };
+
+Vivere.register('ListItem', ListItem);

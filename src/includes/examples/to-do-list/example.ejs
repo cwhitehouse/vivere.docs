@@ -33,7 +33,7 @@
     v-ref="items"
   >
     <% items.forEach(item => { %>
-      <%- include('/examples/to-do-list/item', { toDo: item }) %>
+      <%- include('/examples/to-do-list/_item', { toDo: item }) %>
     <% }); %>
   </div>
   <div class="mt-6">
@@ -42,9 +42,11 @@
       v-event:click="creating = true"
       class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none"
     >Create New To-Do</button>
+
     <div
       v-if="creating"
       class="flex items-center w-full"
+      hidden
     >
       <input
         v-sync="title"

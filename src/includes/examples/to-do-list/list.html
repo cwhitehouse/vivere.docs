@@ -1,0 +1,35 @@
+<!-- Our list component manages the search bar and dropdown -->
+<div v-component="list">
+
+  <!-- Our search bar text is sycned to the `filterText` data property -->
+  <input
+    v-sync="filterText"
+    type="text"
+    placeholder="Search to-dos..."
+  />
+
+  <!-- Our sorting drop down is synced to the `sortMode` data property -->
+  <select v-sync="sortMode">
+    <option value="idAsc">id: 1-9</option>
+    <option value="idDesc">id: 9-1</option>
+    <option value="titleAsc">title: A-Z</option>
+    <option value="titleDesc">title: Z-A</option>
+  </select>
+
+  <!-- v-filter and v-sort are special directives just for -->
+  <!-- dealing safely with a dynamic list of items. They -->
+  <!-- invoke methods on child components to automatically -->
+  <!-- sort and filter the DOM elements, respectively -->
+  <div
+    v-filter="'matchesFilter'"
+    v-sort="orderBy"
+    v-ref="items"
+  >
+    <!-- See list-item.html -->
+  </div>
+
+  <!-- The create button reveals the ability to create new to-dos -->
+  <div>
+    <button>Create New To-Do</button>
+  </div>
+</div>

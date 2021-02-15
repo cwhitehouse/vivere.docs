@@ -1,0 +1,59 @@
+<!-- Our individual list item (hopefully a reusable partial) -->
+<!-- that manages the state of a to-do item -->
+<div
+  v-component="list-item"
+  v-data:to-do="{ 'id': 0, 'title': 'Learn Vivere' }"
+>
+
+  <!-- Each state has it's own "view" -->
+  <!-- · The show state reveals the title and completion status -->
+  <div v-if="state === 'show'">
+    <input
+      type="checkbox"
+      v-sync="toDo.complete"
+    >
+    <p>#<span v-text="toDo.id"></span></p>
+    <!-- We use v-text here instead of directly rendering -->
+    <!-- the tile from the server since the title can change -->
+    <p
+      v-text="toDo.title"
+      v-class:line-through="toDo.complete"
+      v-class:italic="toDo.complete"
+      v-class:text-gray="toDo.complete"
+    ></p>
+    <!-- Switch to edit mode (not allowed once we've completed the to-do) -->
+    <button
+      v-event:click="state = 'edit'"
+      v-disabled="toDo.complete"
+    >Edit...</button>
+    <!-- Switch to delete mode (not allowed once we've completed the to-do) -->
+    <button
+      v-event:click="state = 'delete'"
+      v-disabled="toDo.complete"
+    >Delete...</button>
+  </div>
+
+  <!-- · The edit state allows us to update the title -->
+  <div v-if="state === 'edit'">
+    <input
+      v-sync="title"
+      v-ref="title"
+      v-event:keydown.enter="saveTitle"
+      v-event:keydown.escape="state = 'show'"
+      type="text"
+      placeholder="Choose a title..."
+    />
+    <button
+      v-event:click="saveTitle"
+      v-disabled="!validTitle"
+    >Save</button>
+    <button v-event:click="state = 'show'">Cancel</button>
+  </div>
+
+  <!-- · The delete state allows us to delete the to-do -->
+  <div v-if="state === 'delete'">
+    <p>Are you sure you want to delete this to-do?</p>
+    <button v-event:click="delete">Delete</button>
+    <button v-event:click="state = 'show'">Cancel</button>
+  </div>
+</div>
