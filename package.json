@@ -20,7 +20,7 @@
     "postcss-import": "^14.0.0",
     "prismjs": "^1.23.0",
     "tailwindcss": "^2.0.3",
-    "vivere": "^0.0.31"
+    "vivere": "^0.0.32"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
