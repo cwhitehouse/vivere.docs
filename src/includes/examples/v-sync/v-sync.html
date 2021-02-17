@@ -1,0 +1,46 @@
+<!-- Initialize all the data we want to be tracking... -->
+<div
+  v-component
+  v-data:text="null"
+  v-data:paragraph="null"
+  v-data:selection="null"
+  v-data:checked="false"
+  v-data:radio-selection="null"
+>
+
+  <!-- `v-sync` tracks what is typed into an input[type='text'] -->
+  <input
+    type="text"
+    v-sync="text"
+  />
+  <p v-text="text"></p>
+  <button v-event:click="text = 'Reset!'">Reset Text</button>
+
+
+  <!-- `v-sync` tracks what is typed into a textarea -->
+  <textarea v-sync="paragraph"></textarea>
+  <p v-text="paragraph"></p>
+  <button v-event:click="paragraph = 'Reset!'">Reset Paragraph</button>
+
+
+  <!-- `v-sync` tracks the value of the currently selected option in a select -->
+  <select v-sync="selection">
+    <option value="rome">Rome</option>
+    <option value="paris">Paris</option>
+    <option value="london">London</option>
+    <option value="berlin">Berlin</option>
+    <option value="tokyo">Tokyo</option>
+    <option value="abuja">Abuja</option>
+  </select>
+  <p v-text="selection"></p>
+  <button v-event:click="selection = 'rome'">Reset Selection</button>
+
+
+  <!-- `v-sync` tracks the current boolean state of an input[type='checkbox'] -->
+  <input
+    type="checkbox"
+    v-sync="checked"
+  />
+  <p v-text="checked"></p>
+  <button v-event:click="checked = !checked">Toggle Checked</button>
+</div>

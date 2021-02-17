@@ -1,0 +1,78 @@
+<div
+  v-component
+  v-data:text="null"
+  v-data:paragraph="null"
+  v-data:selection="null"
+  v-data:checked="false"
+  v-data:radio-selection="null"
+  class="p-8 flex flex-col items-stretch space-y-4"
+>
+  <div class="flex items-start space-x-8">
+    <input
+      type="text"
+      v-sync="text"
+      placeholder="Try me!"
+      class="flex-1"
+    />
+    <p
+      v-text="text"
+      class="flex-1 py-1"
+    ></p>
+    <button
+      class="button flex-1"
+      v-event:click="text = 'Reset!'"
+    >Reset Text</button>
+  </div>
+  <div class="flex items-start space-x-8">
+    <textarea
+      v-sync="paragraph"
+      placeholder="Try me!"
+      class="flex-1"
+    ></textarea>
+    <p
+      v-text="paragraph"
+      class="flex-1 py-1"
+    ></p>
+    <button
+      class="button flex-1"
+      v-event:click="paragraph = 'Reset!'"
+    >Reset Paragraph</button>
+  </div>
+  <div class="flex items-start space-x-8">
+    <select
+      v-sync="selection"
+      class="flex-1"
+    >
+      <option value="rome">Rome</option>
+      <option value="paris">Paris</option>
+      <option value="london">London</option>
+      <option value="berlin">Berlin</option>
+      <option value="tokyo">Tokyo</option>
+      <option value="abuja">Abuja</option>
+    </select>
+    <p
+      v-text="selection"
+      class="flex-1 py-1"
+    ></p>
+    <button
+      class="button flex-1"
+      v-event:click="selection = 'rome'"
+    >Reset Selection</button>
+  </div>
+  <div class="flex items-start space-x-8">
+    <div class="flex-1">
+      <input
+        type="checkbox"
+        v-sync="checked"
+      />
+    </div>
+    <p
+      v-text="checked"
+      class="flex-1 py-1"
+    ></p>
+    <button
+      class="button flex-1"
+      v-event:click="checked = !checked"
+    >Toggle Checked</button>
+  </div>
+</div>

@@ -15,11 +15,36 @@ links:
       - to-do-list
   documentation:
     components:
-    directives:
+      - data
+      - stored
+      - passed
+      - computed
+      - methods
+      - callbacks
+    data-directives:
+      - v-component
+      - v-data
+      - v-store
+      - v-pass
+      - v-bind
+      - v-sync
+      - v-ref
+    display-directives:
+      - v-if
+      - v-show
+      - v-disabled
+      - v-href
+      - v-class
+      - v-style
+      - v-text
+    event-directives:
+    list-directives:
+      - v-filter
+      - v-sort
 ---
 
 <div class="k-grid relative z-1">
-  <div class="col-start-4 col-end-11 pt-40 pb-16 markdown">
+  <div class="col-start-4 col-end-11 py-16 markdown">
     <%- content %>
   </div>
 </div>
@@ -54,7 +79,7 @@ links:
             <a
               href="#<%= subsection %>"
               class="ml-4 text-sm font-light text-gray-800 transform origin-left hover:translate-x-0.5 hover:text-indigo-700"
-            ><%= renderer.titleize(subsection) %></a>
+            ><%= link.includes('directives') ? subsection :  renderer.titleize(subsection) %></a>
           <% }); %>
         <% } %>
       <% }); %>

@@ -8,19 +8,25 @@
 .markdown > h2 {
   @apply text-2xl;
 }
-.markdown > h2 + p {
+.markdown > h2 + p, .markdown > .definition + p {
   @apply pt-4;
+}
+.markdown > h2 + h2, .markdown > h2 + .definition, .markdown > .definition + h2, .markdown > .definition + .definition {
+  @apply pt-16;
 }
 
 
 .markdown > h3 {
   @apply text-xl text-gray-900;
 }
+.markdown > h3 + p {
+  @apply pt-3;
+}
 
 .markdown > h4 {
   @apply text-lg text-gray-700;
 }
-.markdown > h4 + h2 {
+.markdown > h4 + h2, .markdown > h4 + .definition  {
   @apply pt-12;
 }
 .markdown > h4 + p {
@@ -30,8 +36,11 @@
 .markdown > p {
   @apply font-light;
 }
-.markdown > p + h2 {
+.markdown > p + h2, .markdown > p + .definition {
   @apply pt-16;
+}
+.markdown > p + h3 {
+  @apply pt-12;
 }
 .markdown > p + h4 {
   @apply pt-10;
@@ -73,13 +82,17 @@
   @apply text-gray-600;
 }
 
-.markdown pre + h2 {
+.markdown pre.language-def {
+  @apply py-1 px-3 my-4 inline-block;
+}
+
+.markdown pre + h2, .markdown pre + .definition {
   @apply mt-16;
 }
 
 .markdown .example {
   @apply mt-8;
 }
-.markdown .example + h2 {
+.markdown .example + h2, .markdown .example + .definition {
   @apply mt-20;
 }

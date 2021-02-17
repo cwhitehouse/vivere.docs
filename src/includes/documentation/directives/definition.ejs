@@ -1,0 +1,26 @@
+<div
+  id="<%= directive.name %>"
+  class="definition font-mono text-gray-500"
+>
+  <p class="text-2xl">
+    <span class="text-indigo-600"><%= directive.name %></span><% if (!!directive.key) { %><span>:</span><span class="text-pink-600">{<%= directive.key.name %>}</span><% if (!!directive.modifier) { %><span>.</span><span class="text-pink-600">{<%= directive.modifier.name %>}</span><% } %><% } %><% if (!!directive.value) { %><span>=</span><span>"<span class="text-pink-600">{<%= directive.value.name %>}</span>"</span><% } %>
+  </p>
+  <div class="space-y-6 p-4 bg-indigo-50 rounded mt-4 mb-6">
+    <% ['key', 'modifier', 'value'].forEach((part) => { %>
+      <% if (!!directive[part]) { %>
+        <div>
+          <p>
+            <span class="text-pink-600">{<%= directive[part].name %>}</span>:
+            <% const types = directive[part].types %>
+            <% if (types.length > 1) { %>
+              (<% types.forEach((type, idx) => { const color = type.startsWith("'") ? 'text-orange-600' : 'text-purple-600'; %><%= idx === 0 ? null : ', ' %><span class="<%= color %>"><%= type %></span><% }); %>)
+            <% } else { %>
+              <span class="text-purple-600"><%= types[0] %></span>
+            <% } %>
+          </p>
+          <p class="font-sans text-gray-800 mt-2"><%= directive[part].description %></p>
+        </div>
+      <% } %>
+    <% }); %>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<!-- `v-store` exposes new variables just like `v-data` -->
+<div
+  v-component
+  v-store:session-count.session="0"
+  v-store.local-count.local="0"
+>
+  <!-- The `sessionCount` is automatically saved to `sessionStorage` -->
+  <!-- whenever the value changes -->
+  <button v-event:click="sessionCount -= 1">-</button>
+  <p v-text="sessionCount">0</p>
+  <button v-event:click="sessionCount += 1">+</button>
+
+  <!-- The `localCount` is automatically saved to `localStorage` -->
+  <!-- whenever the value changes -->
+  <button v-event:click="localCount -= 1">-</button>
+  <p v-text="localCount">0</p>
+  <button v-event:click="localCount += 1">+</button>
+</div>
