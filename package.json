@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf _site",
+    "clean:dist": "rimraf dist",
+    "clean:temp": "rimraf temp",
+    "clean": "run-s clean:*",
     "serve:webpack": "webpack --mode development --watch",
     "serve:postcss": "postcss src/styles/main.css --o tmp/styles/main.css --watch",
     "serve:eleventy": "ELEVENTY_ENV=development eleventy --serve",
-    "serve": "npm-run-all clean --parallel serve:*",
+    "serve": "npm-run-all clean:* --parallel serve:*",
     "build:webpack": "webpack --mode production",
     "build:postcss": "NODE_ENV=production postcss src/styles/main.css --o tmp/styles/main.css",
     "build:eleventy": "ELEVENTY_ENV=production eleventy",
-    "build": "run-s clean build:*"
+    "build": "run-s clean:* build:*"
   },
   "dependencies": {
     "autoprefixer": "^10.2.4",
