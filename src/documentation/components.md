@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       key: 'value',
-      active: true.
+      active: true,
       item: { name: 'test' },
     };
   },
@@ -75,7 +75,7 @@ export default {
   // We need some data to base our computed properties on
   data() {
     return {
-      tags: [].
+      tags: [],
     };
   },
 
@@ -160,5 +160,5 @@ The `callbacks` property on a component gives us the opportunity to define metho
         // once the component is removed from the DOM
       },
     }
-  }.
+  };
 ```
