@@ -30,7 +30,7 @@ export default {
 
     validTitle() {
       const { title } = this;
-      return !!title?.trim();
+      return title && !!title.trim();
     },
   },
 

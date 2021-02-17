@@ -14,14 +14,14 @@ export default {
   computed: {
     validTitle() {
       const { title } = this;
-      return !!title?.trim();
+      return title && !!title.trim();
     },
 
     matchesFilter() {
       const { filterText, toDo } = this;
       const { title } = toDo;
 
-      if (!!filterText?.trim())
+      if (filterText && !!filterText.trim())
         return title.toLowerCase().includes(filterText.toLowerCase());
 
       return true;
