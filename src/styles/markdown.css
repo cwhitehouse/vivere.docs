@@ -96,3 +96,6 @@
 .markdown .example + h2, .markdown .example + .definition {
   @apply mt-20;
 }
+.markdown .example + h4 {
+  @apply mt-12;
+}

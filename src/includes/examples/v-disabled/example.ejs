@@ -1,0 +1,14 @@
+<div
+  v-component
+  v-data:disabled="true"
+  class="p-8"
+>
+  <button
+    v-event:click="disabled = !disabled"
+    class="button"
+  >Toggle Disabled</button>
+  <button
+    v-disabled="disabled"
+    class="button ml-4"
+  >Another Button</button>
+</div>

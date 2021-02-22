@@ -1,0 +1,14 @@
+<div
+  v-component="v-href"
+  class="p-8 flex items-center"
+>
+  <button
+    v-event:click="toggleLink"
+    class="button"
+  >Toggle Link</button>
+  <a
+    v-href="href"
+    class="ml-4 underline font-semibold text-indigo-500 hover:text-indigo-800"
+    target="_blank"
+  >A fun link!</a>
+</div>

@@ -1,0 +1,15 @@
+<div
+  v-component
+  v-data:show-message="false"
+  class="p-8 flex items-center"
+>
+  <button
+    v-event:click="showMessage = !showMessage"
+    class="button"
+  >Toggle Message</button>
+  <p
+    v-if="showMessage"
+    class="ml-4"
+    hidden
+  >This is a secret, hidden message!</p>
+</div>

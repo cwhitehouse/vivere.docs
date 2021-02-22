@@ -1,0 +1,32 @@
+<div
+  v-component
+  v-data:hovering-html="false"
+  v-data:hovering-js="false"
+  class="flex items-stretch example"
+>
+  <div
+    v-event:mouseenter="hoveringHtml = true"
+    v-event:mouseleave="hoveringHtml = false"
+    v-class:flex-grow="hoveringHtml || !hoveringJs"
+    class="w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis"
+  >
+
+```html
+<%- include(`/code-pair/${name}/view.html`) %>
+```
+
+  </div>
+  <div class="w-2 flex-shrink-0 bg-white"></div>
+  <div
+    v-event:mouseenter="hoveringJs = true"
+    v-event:mouseleave="hoveringJs = false"
+    v-class:flex-grow="hoveringJs || !hoveringHtml"
+    class="w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis"
+  >
+
+```js
+<%- include(`/code-pair/${name}/script.js`) %>
+```
+
+  </div>
+</div>

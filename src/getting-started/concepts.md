@@ -59,3 +59,33 @@ Properties passed from a Component to one of it's children via the `v-pass` dire
 
 Computed properties allow you to define properties that are calculated based on other properties. These special properties react to any property they depend on, and will recompute when any dependant property changes. Once computed, they store their value as if it was a data property on the Component. Other values, like Computed properties or Directives can react to changes in Computed properties, as well as any of the Computed properties dependancies.
 
+
+## Expressions
+
+Most Vivere directives allow you to pass an `expression` as an argument. How these expressions are parsed varies depending on what the directive is expecting. Generally, these expressions represent a subset of Javascript, parsed directly by Vivere instead of say being passed to an `eval` statement. This allows us Vivere to help the parsing, by properly scoping what `this` is, and prevents us from executing potnetially malicious code.
+
+Expressions are generally interpreted in one of three ways:
+
+#### Data Expression
+
+Data expressions are used alongside directives like `v-data` or `v-store`. They represent data we want to pass to our components. Since the data is coming from outside the system, it will parse the data expression as a primitive, such as a `number`, `string` or `JSON` object.
+
+<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'data-expressions' })) %>
+
+#### Method Expression
+
+Method expressions are parsed by `v-event` directives when they are triggered. Method expressions represent a function we want to invoke. They can either refer to a function in our component's `methods`, or a basic assignment expression that is executed in the context of `this` component. Inside basic assignment expressions, we can use some basic operators like not (`!`) or ternary expressions (`? : ;`).
+
+<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'method-expressions' })) %>
+
+#### Boolean Expression
+
+Boolean expressions are parsed by directives like `v-if` or `v-disabled` that toggle some property based on a parsed boolean expression. These expressions can either reference a component's `methods`, or evaluate some comparison operator, such as `>` or `<`. They also support ternary expressions, and basic logicical operators (`||` and/pr `&&`).
+
+<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'boolean-expressions' })) %>
+
+#### String Expression
+
+String expressions are parsed by directives like `v-text` or `v-style`. They are either evaluated as methods that are expected to return strings, or as strings themselves. Like other expressions, basic operators like ternary operators are available to help accomodate basic logic.
+
+<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'string-expressions' })) %>
