@@ -11,7 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=fallback" rel="stylesheet">
   </head>
   <body class="transition-all">
-    <main class="k-container relative">
+    <main
+      v-component
+      v-data:show-nav="false"
+      class="k-container relative"
+    >
       <%- content %>
     </main>
     <%- include('/page/footer') %>

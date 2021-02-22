@@ -13,6 +13,7 @@ directives:
       name: modifier
       types:
         - "'prevent'"
+        - "'delay'"
         - "'outside'"
         - "'esc'"
         - "'escape'"
@@ -42,6 +43,12 @@ We can pass a `modifier` to this directive to change some the behavior of some e
 
 When the `prevent` modifier is applied, `preventDefault()` is automatically invoked on the event object returned by the listener.
 
+`delay`
+
+When the `delay` modifier is applied, the event handler is invoked after a `setTimeout(HANDLER, 0)`. This delay allows any other event handlers to resolve before this handler is invoked.
+
+This can be particularly helpful for dealing with `click.outside` events, where we might want to not handle clicks outside a modal until we're sure the modal is visible.
+
 ## Click Events
 
 `outside`
@@ -52,10 +59,10 @@ When the `outside` modifier is applied, the event listens to clicks anywhere on 
 
 You can use modifiers to automatically filter keyboard events to only certain keys, to avoid having to run checks on `keyCode` in your own code.
 
-`esc` `escape`
+`esc`, `escape`
 
 Only triggered by the escape key
 
-`ent` `enter`
+`ent`, `enter`
 
 Only triggered by the enter (return) key

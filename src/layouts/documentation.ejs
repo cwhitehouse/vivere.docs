@@ -1,89 +1,16 @@
 ---
 layout: default
-links:
-  getting-started:
-    installation:
-    concepts:
-      - background
-      - components
-      - directives
-      - reactivity
-      - expressions
-    examples:
-      - counter
-      - fancy-counter
-      - filterable-list
-      - to-do-list
-  documentation:
-    components:
-      - data
-      - stored
-      - passed
-      - computed
-      - methods
-      - callbacks
-    data-directives:
-      - v-component
-      - v-data
-      - v-store
-      - v-pass
-      - v-bind
-      - v-sync
-      - v-ref
-    display-directives:
-      - v-if
-      - v-show
-      - v-disabled
-      - v-href
-      - v-class
-      - v-style
-      - v-text
-    event-directives:
-    list-directives:
-      - v-filter
-      - v-sort
 ---
 
 <div class="k-grid relative z-1">
-  <div class="col-start-4 col-end-11 py-16 markdown">
+  <div class="col-start-1 lg:col-start-4 col-end-12 lg:col-end-11 py-24 lg:py-16 markdown">
     <%- content %>
   </div>
 </div>
-<div
-  class="fixed top-0 left-0 border-r-2 border-gray-200 h-screen overflow-y-scroll bg-white"
-  style="width: calc(2*100%/12);"
->
-  <div class="px-8 py-16 space-y-2 flex flex-col items-start">
-    <a href="/">
-      <p class="transform origin-left text-2xl font-serif font-semibold text-indigo-600 hover:text-indigo-800 hover:translate-x-0.5">vivere</p>
-    </a>
-    <% Object.entries(links).forEach(([section, links]) => { %>
-      <p class="text-xs font-semibold text-gray-500 pb-2 pt-16"><%= renderer.upcase(section) %></p>
-
-      <% Object.entries(links).forEach(([link, subsections]) => { %>
-        <%
-          const url = `/${section}/${link}/`;
-          const isActive = url === page.url;
-
-          const linkClass = isActive ?
-            'text-indigo-700 font-medium hover:text-indigo-900' :
-            'hover:text-indigo-700';
-        %>
-
-        <a
-          href="<%= url %>"
-          class="transform origin-left hover:translate-x-0.5 <%= linkClass %>"
-        ><%= renderer.titleize(link) %></a>
-
-        <% if (isActive) { %>
-          <% !!subsections && subsections.forEach((subsection) => { %>
-            <a
-              href="#<%= subsection %>"
-              class="ml-4 text-sm font-light text-gray-800 transform origin-left hover:translate-x-0.5 hover:text-indigo-700"
-            ><%= link.includes('directives') ? subsection :  renderer.titleize(subsection) %></a>
-          <% }); %>
-        <% } %>
-      <% }); %>
-    <% }); %>
-  </div>
+<div class="absolute left-0 top-0 ml-4 mt-8">
+  <button
+    v-event:click.delay="showNav = true"
+    class="button"
+  > = </button>
 </div>
+<%- include('/documentation/side-nav') %>

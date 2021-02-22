@@ -26,7 +26,7 @@ html {
 .k-grid {
   @apply grid-cols-12 gap-x-6;
 }
-@screen lg {
+@screen md {
   .k-grid {
     @apply grid;
   }
@@ -42,7 +42,7 @@ a > * { @apply transition-all; }
 /* BUTTONS */
 
 button.button {
-  @apply transition-all border border-gray-400 rounded shadow px-3 py-1;
+  @apply transition-all bg-white border border-gray-400 rounded shadow px-3 py-1;
 }
 button.button:hover {
   @apply shadow-lg;

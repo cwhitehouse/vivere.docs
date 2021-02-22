@@ -58,7 +58,7 @@
 }
 
 .markdown pre {
-  @apply text-sm font-mono font-medium text-indigo-900 leading-loose bg-gray-100 font-light rounded px-6 py-4;
+  @apply text-sm font-mono font-medium text-indigo-900 leading-loose bg-gray-100 font-light rounded px-6 py-4 overflow-hidden;
 }
 .markdown pre .token.tag, .markdown pre .token.boolean {
   @apply text-red-500;
