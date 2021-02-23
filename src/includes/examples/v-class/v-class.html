@@ -4,8 +4,7 @@
 >
   <button v-event:click="blue = !blue">Toggle Classes</button>
   <p
-    v-class:text-blue="blue"
-    v-class:italic="blue"
+    v-class:text-blue.italic="blue"
     v-class:text-red="!blue"
   >This is a blue message...</p>
 </div>

@@ -16,7 +16,7 @@ directives:
     modifier:
       name: modifier
       types:
-        - "'prevent'"
+        - "'cancel'"
         - "'delay'"
         - "'outside'"
         - "'esc'"
@@ -43,9 +43,9 @@ We can pass a `modifier` to this directive to change some the behavior of some e
 
 ## All Events
 
-`prevent`
+`cancel`
 
-When the `prevent` modifier is applied, `preventDefault()` is automatically invoked on the event object returned by the listener.
+When the `cancel` modifier is applied, the event handler automatically returns false to cancel any default click behavior, such as visiting a link.
 
 `delay`
 

@@ -41,6 +41,12 @@ directives:
       types:
         - string
       description: The class we want to conditionally add to or remove from this element
+    modifier:
+      name: classes
+      types:
+        - string
+        - 'null'
+      description: Additional classes (separated by a ".") to conditionally add or remove
     value:
       name: expression
       types:
@@ -99,7 +105,7 @@ The `v-href` directive controls the `href` attribute on an element. If the expre
 
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.class })) %>
 
-The `v-class` directive adds or removes a `class` to the element. If the expression is evaluated as true, we add the class, and if it evaluates as false we remove the class. You can use multiple `v-class` directives to toggle multiple classes.
+The `v-class` directive adds or removes one or more classes to the element. If the expression is evaluated as true, we add the class(es), and if it evaluates as false we remove the class(es). You can use multiple `v-class` directives to toggle multiple classes with differing logic.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-class' })) %>
 

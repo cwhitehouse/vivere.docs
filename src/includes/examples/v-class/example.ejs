@@ -17,11 +17,8 @@
     class="button"
   >Toggle Classes</button>
   <p
-    v-class:text-indigo-600="blue"
-    v-class:italic="blue"
-    v-class:text-red-600="!blue"
-    v-class:dark:text-indigo-400="blue"
-    v-class:dark:text-red-400="!blue"
+    v-class:text-indigo-600.dark:text-indigo-400.italic="blue"
+    v-class:text-red-600.dark:text-red-400="!blue"
     class="ml-4"
   >This is a blue message...</p>
 </div>
