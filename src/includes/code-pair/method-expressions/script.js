@@ -1,8 +1,10 @@
 this.takeAction();
 
+this.record.activate();
+
 this.acting = false;
 
-this.acting = !false;
+this.acting = !this.acting;
 
 if (this.waiting)
   this.acting = !this.acting;

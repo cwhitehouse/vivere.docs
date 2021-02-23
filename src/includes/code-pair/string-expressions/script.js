@@ -1,7 +1,6 @@
-if (typeof this.textString === 'function')
-  return this.textString();
-else
-  return this.textString;
+return this.textString;
+
+return this.record.title;
 
 if (this.isLastItem)
   return '0px';
