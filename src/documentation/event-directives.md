@@ -1,6 +1,10 @@
 ---
 layout: documentation
 title: Event Directives
+
+previous: documentation/display-directives
+next: documentation/list-directives
+
 directives:
   event:
     name: v-event

@@ -2,9 +2,37 @@
 layout: default
 ---
 
-<div class="k-grid relative z-1">
-  <div class="col-start-1 lg:col-start-4 col-end-12 lg:col-end-11 py-24 lg:py-16 markdown">
-    <%- content %>
+<div class="k-grid relative z-1 min-h-screen">
+  <div class="flex flex-col items-stretch col-start-1 lg:col-start-4 col-end-12 lg:col-end-11 pt-24 lg:pt-16">
+    <div class="markdown">
+      <%- content %>
+    </div>
+    <div class="flex-grow flex flex-col items-stretch justify-end py-24 lg:py-16">
+      <div class="flex items-center justify-between">
+        <% if (locals.previous != null) { %>
+          <% const label = renderer.titleize(previous.split('/')[1]); %>
+          <div class="flex items-center">
+            <p class="text-gray-500 dark:text-gray-400">←</p>
+            <a
+              class="text-link ml-4"
+              href="/<%= previous %>"
+            ><%= label %></a>
+          </div>
+        <% } else { %>
+          <div></div>
+        <% } %>
+        <% if (locals.next != null) { %>
+          <% const label = renderer.titleize(next.split('/')[1]); %>
+          <div class="flex items-center">
+            <a
+              class="text-link mr-4"
+              href="/<%= next %>"
+            ><%= label %></a>
+            <p class="text-gray-500 dark:text-gray-400">→</p>
+          </div>
+        <% } %>
+      </div>
+    </div>
   </div>
 </div>
 <div class="absolute left-0 top-0 ml-4 mt-8">

@@ -1,6 +1,9 @@
 ---
 layout: documentation
 title: Examples
+
+previous: getting-started/concepts
+next: documentation/components
 ---
 
 # Examples

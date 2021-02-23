@@ -1,6 +1,8 @@
 ---
 layout: documentation
 title: Installation
+
+next: getting-started/concepts
 ---
 
 # Installation

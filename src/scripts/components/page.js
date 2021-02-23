@@ -3,6 +3,7 @@ export default {
     return {
       showNav: false,
       systemDark: false,
+      showingModal: false,
     };
   },
 
@@ -21,11 +22,19 @@ export default {
       if (mode === 'dark') return true;
       return systemDark;
     },
+
+    sortition() {
+      return [['sortIdx'], ['asc']];
+    },
   },
 
   methods: {
     updateSystemDark() {
       this.systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    },
+
+    selectMode(mode) {
+      this.mode = mode;
     },
   },
 

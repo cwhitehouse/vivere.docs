@@ -1,6 +1,10 @@
 ---
 layout: documentation
 title: Display Directives
+
+previous: documentation/data-directives
+next: documentation/event-directives
+
 directives:
   if:
     name: v-if

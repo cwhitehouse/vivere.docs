@@ -1,6 +1,10 @@
 ---
 layout: documentation
 title: Data Directives
+
+previous: documentation/components
+next: documentation/display-directives
+
 directives:
   component:
     name: v-component

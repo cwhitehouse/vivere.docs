@@ -1,6 +1,9 @@
 ---
 layout: documentation
 title: List Directives
+
+previous: documentation/event-directives
+
 directives:
   filter:
     name: v-filter

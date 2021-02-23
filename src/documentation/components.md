@@ -1,6 +1,9 @@
 ---
 layout: documentation
 title: Components
+
+previous: getting-started/examples
+next: documentation/data-directives
 ---
 
 # Components

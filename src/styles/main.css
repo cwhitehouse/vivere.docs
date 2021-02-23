@@ -22,12 +22,15 @@ html {
 .dark {
   @apply bg-gray-900 text-white;
 }
+.dark *, .dark :before, .dark :after {
+  @apply border-gray-700;
+}
 
 
 /* LAYOUTS */
 
 .k-container {
-  @apply container mx-auto px-4 lg:px-0;
+  @apply container mx-auto px-4 lg:px-0 min-h-screen;
 }
 
 .k-grid {
@@ -45,6 +48,10 @@ html {
 a { @apply transition-all; }
 a > * { @apply transition-all; }
 
+.text-link { @apply transform underline text-indigo-600; }
+.dark .text-link { @apply text-indigo-300; }
+.text-link:hover { @apply text-indigo-900 -translate-y-0.5; }
+.dark .text-link:hover { @apply text-indigo-400; }
 
 /* BUTTONS */
 

@@ -18,7 +18,63 @@
     <main class="k-container relative">
       <%- content %>
     </main>
-    <%- include('/page/footer') %>
+    <div class="absolute top-0 right-0 m-8">
+      <button
+        v-if="true"
+        v-event:mouseenter="showingModal = true"
+        class="transition-all px-4 py-2 border-2 border-white dark:border-gray-900 text-gray-600 dark:text-gray-400"
+        hidden
+      >
+        <div v-if="mode === 'auto'">
+          <div v-if="systemDark">
+            <%- include('/icons/dark-auto', { size: 24 }) %>
+          </div>
+          <div v-if="!systemDark">
+            <%- include('/icons/light-auto', { size: 24 }) %>
+          </div>
+        </div>
+        <div v-if="mode === 'light'">
+          <%- include('/icons/light', { size: 24 }) %>
+        </div>
+        <div v-if="mode === 'dark'">
+          <%- include('/icons/dark', { size: 24 }) %>
+        </div>
+      </button>
+      <div
+        v-if="showingModal"
+        v-event:mouseleave="showingModal = false"
+        class="absolute top-0 right-0 -mt-2 flex flex-col items-stretch rounded bg-white dark:bg-gray-800 py-2 border-2 shadow-xl space-y-1"
+        hidden
+      >
+        <% ['auto', 'light', 'dark'].forEach((mode) => { %>
+          <button
+            v-event:click="mode = '<%= mode %>'"
+            class="flex items-center hover:bg-indigo-100 dark:hover:bg-indigo-700 px-4 py-2"
+          >
+            <!--
+              TAILWIND
+              text-indigo-600
+              dark:text-indigo-400
+            -->
+            <p
+              v-class:text-indigo-600="mode === '<%= mode %>'"
+              v-class:dark:text-indigo-400="mode === '<%= mode %>'"
+            >
+              <% if (mode === 'auto') { %>
+                <span v-if="systemDark">
+                  <%- include('/icons/dark-auto', { size: 24 }) %>
+                </span>
+                <span v-if="!systemDark">
+                  <%- include('/icons/light-auto', { size: 24 }) %>
+                </span>
+              <% } else { %>
+                <%- include(`/icons/${mode}`, { size: 24 }) %>
+              <% } %>
+            </p>
+          </button>
+        <% }); %>
+      </div>
+    </div>
   </body>
   <script type="module" src="/scripts/main.js"></script>
 </html>

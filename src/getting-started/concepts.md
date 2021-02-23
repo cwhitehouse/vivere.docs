@@ -1,6 +1,9 @@
 ---
 layout: documentation
 title: Concepts
+
+previous: getting-started/installation
+next: getting-started/examples
 ---
 
 # Concepts
