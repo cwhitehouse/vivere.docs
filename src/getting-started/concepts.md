@@ -18,18 +18,18 @@ Components in Vivere exist as a data layer that manages and coordinates HTML ele
 The root element of a Component is defined as the HTML element that deines the `v-component` attribute. The Component also includes all children of the root, up until any other `v-component` attribute is detected.
 
 ```html
-<div>                                 <!-- No component... -->
-  <div v-component>                   <!-- Component A (root) -->
-    <div>                               <!-- Component A -->
-      <div></div>                       <!-- Component A -->
+<div>                             <!-- No component... -->
+  <div v-component>               <!-- Component A (root) -->
+    <div>                           <!-- Component A -->
+      <div></div>                   <!-- Component A -->
     </div>
-    <div v-component="name">            <!-- Component B (root) -->
-      <div></div>                         <!-- Component B -->
-      <div></div>                         <!-- Component B -->
+    <div v-component="name">        <!-- Component B (root) -->
+      <div></div>                     <!-- Component B -->
+      <div></div>                     <!-- Component B -->
     </div>
-    <div></div>                         <!-- Component A -->
+    <div></div>                     <!-- Component A -->
   </div>
-  <div></div>                         <!-- No component... -->
+  <div></div>                     <!-- No component... -->
 </div>
 ```
 

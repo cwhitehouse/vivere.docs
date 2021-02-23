@@ -19,12 +19,18 @@
 .markdown > h3 {
   @apply text-xl text-gray-900;
 }
+.dark .markdown > h3 {
+  @apply text-gray-400;
+}
 .markdown > h3 + p {
   @apply pt-3;
 }
 
 .markdown > h4 {
   @apply text-lg text-gray-700;
+}
+.dark .markdown > h4 {
+  @apply text-gray-300;
 }
 .markdown > h4 + h2, .markdown > h4 + .definition  {
   @apply pt-12;
@@ -56,30 +62,57 @@
   @apply text-sm font-mono font-medium text-indigo-800 bg-indigo-100 rounded px-1;
   padding-top: 2px; padding-bottom: 2px;
 }
+.dark .markdown > p > code, .dark .markdown > code {
+  @apply bg-indigo-800 text-indigo-100;
+}
 
 .markdown pre {
   @apply text-sm font-mono font-medium text-indigo-900 leading-loose bg-gray-100 font-light rounded px-6 py-4 overflow-hidden;
 }
+.dark .markdown pre {
+  @apply bg-gray-800 text-indigo-400;
+}
 .markdown pre .token.tag, .markdown pre .token.boolean {
   @apply text-red-500;
+}
+.dark .markdown pre .token.tag, .dark .markdown pre .token.boolean {
+  @apply text-red-300;
 }
 .markdown pre .token.function {
   @apply text-blue-500;
 }
+.dark .markdown pre .token.function {
+  @apply text-blue-300;
+}
 .markdown pre .token.attr-value, .markdown pre .token.string {
   @apply text-orange-500;
+}
+.dark .markdown pre .token.attr-value, .dark .markdown pre .token.string {
+  @apply text-orange-300;
 }
 .markdown pre .token.number {
   @apply text-pink-400;
 }
+.dark .markdown pre .token.number {
+  @apply text-pink-300;
+}
 .markdown pre .token.keyword, .markdown pre .token.punctuation {
   @apply text-indigo-600;
+}
+.dark .markdown pre .token.keyword, .dark .markdown pre .token.punctuation {
+  @apply text-indigo-300;
 }
 .markdown pre .token.operator, .markdown pre .token.attr-name {
   @apply text-purple-600;
 }
+.dark .markdown pre .token.operator, .dark .markdown pre .token.attr-name {
+  @apply text-purple-400;
+}
 .markdown pre .token.comment {
   @apply text-gray-600;
+}
+.dark .markdown pre .token.comment {
+  @apply text-gray-400;
 }
 
 .markdown pre.language-def {

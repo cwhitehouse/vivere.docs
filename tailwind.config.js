@@ -8,9 +8,12 @@ module.exports = {
     'src/**/*.css',
   ],
 
+  darkMode: 'class',
+
   theme: {
     colors: {
       ...colors,
+      gray: colors.blueGray,
     },
 
     fontFamily: {

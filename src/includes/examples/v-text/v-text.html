@@ -1,0 +1,17 @@
+<div
+  v-component
+  v-data:text="something"
+  v-data:toggle="false"
+>
+  <p>I
+    <span v-text="toggle ? 'hate' : 'love'" ></span>
+    <span v-text="text"></span>.
+  </p>
+  <input
+    type="text"
+    v-sync="text"
+  >
+  <button
+    v-event:click="toggle = !toggle"
+  >Toggle Feelings</button>
+</div>

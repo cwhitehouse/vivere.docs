@@ -1,0 +1,25 @@
+<div
+  v-component
+  v-data:text="something"
+  v-data:toggle="false"
+  class="p-8"
+>
+  <p>I
+    <span
+      v-text="toggle ? 'hate' : 'love'"
+      class="italic semibold"
+    ></span>
+    <span v-text="text"></span>.
+  </p>
+  <div class="flex items-center mt-2 space-x-2">
+    <input
+      type="text"
+      v-sync="text"
+    >
+    <button
+      v-event:click="toggle = !toggle"
+      class="button"
+    >Toggle Feelings</button>
+  </div>
+
+</div>

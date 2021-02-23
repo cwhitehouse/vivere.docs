@@ -101,6 +101,12 @@ The `v-class` directive adds or removes a `class` to the element. If the express
 
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.style })) %>
 
+The `v-style` directive automatically updates a style attribute for the element involved. The `name` property controls which attribute we update. The expression is evaluated as a string and passed in as a value for the style.
+
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-style' })) %>
 
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.text })) %>
+
+The `v-text` directive sets the text property of your element. It's useful for any dynamic text derived from component data that we cannot rely on the server to generate.
+
+<%- renderer.markdownSafe(include('/examples/example', { name: 'v-text' })) %>

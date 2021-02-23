@@ -1,4 +1,4 @@
-export default {
+const VStyle = {
   data() {
     return {
       width: 0,
@@ -29,3 +29,4 @@ export default {
     cancelInterval(this.interval);
   },
 };
+Vivere.register('VStyle', VStyle);

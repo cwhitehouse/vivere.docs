@@ -2,35 +2,42 @@
   TAILWIND
   flex-grow
 -->
-<div
-  v-component
-  v-data:hovering-html="false"
-  v-data:hovering-js="false"
-  class="flex items-stretch example"
->
+
+<div class="example space-y-2">
+  <div class="flex items-center justify-between text-sm font-semibold mx-2 text-gray-700 dark:text-gray-500">
+    <p>HTML</p>
+    <p>JS</p>
+  </div>
   <div
-    v-event:mouseenter="hoveringHtml = true"
-    v-event:mouseleave="hoveringHtml = false"
-    v-class:flex-grow="hoveringHtml || !hoveringJs"
-    class="w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis"
+    v-component
+    v-data:hovering-html="false"
+    v-data:hovering-js="false"
+    class="flex items-stretch"
   >
+    <div
+      v-event:mouseenter="hoveringHtml = true"
+      v-event:mouseleave="hoveringHtml = false"
+      v-class:flex-grow="hoveringHtml || !hoveringJs"
+      class="w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis flex-grow"
+    >
 
 ```html
 <%- include(`/code-pair/${name}/view.html`) %>
 ```
 
-  </div>
-  <div class="w-2 flex-shrink-0 bg-white"></div>
-  <div
-    v-event:mouseenter="hoveringJs = true"
-    v-event:mouseleave="hoveringJs = false"
-    v-class:flex-grow="hoveringJs || !hoveringHtml"
-    class="w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis"
-  >
+    </div>
+    <div class="w-2 flex-shrink-0 bg-white dark:bg-gray-900"></div>
+    <div
+      v-event:mouseenter="hoveringJs = true"
+      v-event:mouseleave="hoveringJs = false"
+      v-class:flex-grow="hoveringJs || !hoveringHtml"
+      class="w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis flex-grow"
+    >
 
 ```js
 <%- include(`/code-pair/${name}/script.js`) %>
 ```
 
+    </div>
   </div>
 </div>
