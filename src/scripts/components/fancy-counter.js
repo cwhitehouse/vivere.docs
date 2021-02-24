@@ -28,9 +28,5 @@ export default {
       if (this.canDecrement)
         this.count -= 1;
     },
-
-    incrementCount() {
-      this.count += 1;
-    },
   }
 };

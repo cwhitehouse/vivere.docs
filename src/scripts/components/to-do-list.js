@@ -77,12 +77,12 @@ export default {
     <button
       v-event:click="state = 'edit'"
       v-disabled="toDo.complete"
-      class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed"
+      class="button"
     >Edit...</button>
     <button
       v-event:click="state = 'delete'"
       v-disabled="toDo.complete"
-      class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed ml-2"
+      class="button ml-2"
     >Delete...</button>
   </div>
   <div
@@ -101,25 +101,25 @@ export default {
     <button
       v-event:click="saveTitle"
       v-disabled="!validTitle"
-      class="text-teal-600 border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed mr-2"
+      class="button text-teal-600 mr-2"
     >Save</button>
     <button
       v-event:click="state = 'show'"
-      class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed"
+      class="button"
     >Cancel</button>
   </div>
   <div
     v-if="state === 'delete'"
     class="flex items-center w-full"
   >
-    <p class="flex-1 text-red-800 ml-2">Are you sure you want to delete this to-do?</p>
+    <p class="flex-1 text-red-800 dark:text-red-400 ml-2">Are you sure you want to delete this to-do?</p>
     <button
       v-event:click="delete"
-      class="text-red-600 border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed mr-2"
+      class="button text-red-600 dark:text-red-300 mr-2"
     >Delete</button>
     <button
       v-event:click="state = 'show'"
-      class="border border-gray-400 rounded shadow px-3 py-1 hover:shadow-lg active:shadow-none disabled:opacity-50 disabled:text-gray-700 disabled:shadow-none disabled:cursor-not-allowed"
+      class="button"
     >Cancel</button>
   </div>
 </div>

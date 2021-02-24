@@ -10,15 +10,15 @@
 <div
   v-component
   v-data:blue="true"
-  class="p-6 flex items-center"
+  class="flex items-center space-x-4"
 >
   <button
     v-event:click="blue = !blue"
-    class="button"
+    class="button lg:flex-1"
   >Toggle Classes</button>
   <p
     v-class:text-indigo-600.dark:text-indigo-400.italic="blue"
     v-class:text-red-600.dark:text-red-400="!blue"
-    class="ml-4"
+    class="flex-1"
   >This is a blue message...</p>
 </div>

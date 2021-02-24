@@ -34,11 +34,6 @@ const FancyCounter = {
       if (this.canDecrement)
         this.count -= 1;
     },
-
-    // Use a method to increment the count
-    incrementCount() {
-      this.count += 1;
-    },
   }
 };
 

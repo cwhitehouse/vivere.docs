@@ -22,11 +22,16 @@ const VStyle = {
   },
 
   connected() {
-    this.interval = setInterval(this.incrementWidth.bind(this), 100);
+    const binding =
+      this.incrementWidth.bind(this);
+
+    this.interval =
+      setInterval(binding, 100);
   },
 
   destroyed() {
     cancelInterval(this.interval);
   },
 };
+
 Vivere.register('VStyle', VStyle);

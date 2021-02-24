@@ -1,1 +1,1 @@
-// No Javascript required for anonymous components!
+// No javascript required!

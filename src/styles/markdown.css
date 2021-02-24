@@ -67,7 +67,12 @@
 }
 
 .markdown pre {
-  @apply text-sm font-mono font-medium text-indigo-900 leading-loose bg-gray-100 font-light rounded px-6 py-4 overflow-hidden;
+  @apply text-sm font-mono font-medium text-indigo-900 leading-loose bg-gray-100 font-light rounded px-3 py-2 overflow-hidden;
+}
+@screen lg {
+  .markdown pre {
+    @apply px-6 py-4;
+  }
 }
 .dark .markdown pre {
   @apply bg-gray-800 text-indigo-400;

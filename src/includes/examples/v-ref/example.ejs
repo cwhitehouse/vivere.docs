@@ -1,14 +1,15 @@
 <div
   v-component
-  class="p-8 flex flex-col items-start space-y-4"
+  class="flex items-center space-x-4"
 >
   <input
     v-ref='text'
     type='text'
     placeholder='Waiting for input...'
+    class="flex-1"
   ></input>
   <button
-    class="button"
+    class="button lg:w-32"
     v-event:click="$refs.text.focus"
   >Focus</button>
 </div>
