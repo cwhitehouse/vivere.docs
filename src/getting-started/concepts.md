@@ -2,17 +2,13 @@
 layout: documentation
 title: Concepts
 
-previous: getting-started/installation
+previous: getting-started/introduction
 next: getting-started/examples
 ---
 
 # Concepts
 
 #### Explore the core ideas behind Vivere
-
-## Background
-
-Vivere is a component-based framework for adding interactivity to server generated HTML. This framework borrows core ideas from frameworks like Vue and React, but differs in that none of the HTML is rendered client side. Vivere, instead, turns your existing server generated HTML into components that you can then listen to events, conditionally render, and update their attributes based on reactive data.
 
 ## Components
 
@@ -40,7 +36,7 @@ The root element of a Component is defined as the HTML element that deines the `
 
 Directives are the way we tell Vivere to add pieces of interactivity or reactivity to our static HTML. Directives are specially named attributes, that follow the pattern `v-*`. These directives generally either capture an event and hand it off to the Component, render some attribute of the element based on Component data, or accomodate defining data on the Component.
 
-By combining different Directives, we can add advanced functionality that would normally require complicated Javascript to our static HTML, such as filtering and sorting lists, building reactive forms, and creating popups and modals.
+By combining different directives, we can add advanced functionality that would normally require complicated Javascript to our static HTML, such as filtering and sorting lists, building reactive forms, and creating popups and modals.
 
 ## Reactivity
 

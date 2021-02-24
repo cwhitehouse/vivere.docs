@@ -17,7 +17,7 @@
 
 
 .markdown > h3 {
-  @apply text-xl text-gray-900;
+  @apply text-xl text-gray-700;
 }
 .dark .markdown > h3 {
   @apply text-gray-400;
@@ -27,7 +27,7 @@
 }
 
 .markdown > h4 {
-  @apply text-lg text-gray-700;
+  @apply text-lg text-gray-600;
 }
 .dark .markdown > h4 {
   @apply text-gray-300;
@@ -40,7 +40,7 @@
 }
 
 .markdown > p {
-  @apply font-light;
+  @apply font-light leading-relaxed;
 }
 .markdown > p + h2, .markdown > p + .definition {
   @apply pt-16;
@@ -109,21 +109,24 @@
   @apply text-purple-400;
 }
 .markdown pre .token.comment {
-  @apply text-gray-600;
-}
-.dark .markdown pre .token.comment {
-  @apply text-gray-400;
+  @apply text-gray-500;
 }
 
 .markdown pre.language-def {
   @apply py-1 px-3 my-4 inline-block;
 }
 
+.markdown pre + pre {
+  @apply mt-2;
+}
+.markdown pre + p {
+  @apply mt-6;
+}
 .markdown pre + h2, .markdown pre + .definition {
   @apply mt-16;
 }
 
-.markdown .example {
+.markdown .example, .markdown .example + p {
   @apply mt-8;
 }
 .markdown .example + h2, .markdown .example + .definition {

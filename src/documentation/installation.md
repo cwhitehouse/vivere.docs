@@ -2,7 +2,8 @@
 layout: documentation
 title: Installation
 
-next: getting-started/concepts
+previous: getting-started/examples
+next: documentation/components
 ---
 
 # Installation

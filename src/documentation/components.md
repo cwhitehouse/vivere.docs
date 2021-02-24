@@ -2,7 +2,7 @@
 layout: documentation
 title: Components
 
-previous: getting-started/examples
+previous: documentation/installation
 next: documentation/data-directives
 ---
 
