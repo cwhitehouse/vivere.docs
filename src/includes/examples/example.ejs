@@ -3,40 +3,56 @@
   flex-grow
 -->
 
+<%
+  const pathPrefix = 'src/includes';
+
+  const exampleFile = `/examples/${name}/example.ejs`;
+  const htmlFile = `/examples/${name}/${name}.html`;
+  const jsFile = `/examples/${name}/${name}.js`;
+
+  const exampleExists = renderer.doesFileExist(`${pathPrefix}${exampleFile}`);
+  const htmlExists = renderer.doesFileExist(`${pathPrefix}${htmlFile}`);
+  const jsExists = renderer.doesFileExist(`${pathPrefix}${jsFile}`);
+%>
+
 <div class="example space-y-2">
-  <div class="border-2 rounded p-4 lg:p-6">
-    <%- include(`/examples/${name}/example`) %>
-  </div>
-  <div
-    v-component
-    v-data:hovering-html="false"
-    v-data:hovering-js="false"
-    class="flex items-stretch"
-  >
+  <% if (exampleExists) { %>
+    <div class="border-2 rounded p-4 lg:p-6">
+      <%- include(exampleFile) %>
+    </div>
+  <% } %>
+  <% if (htmlExists || jsExists) { %>
     <div
-      v-event:mouseenter="hoveringHtml = true"
-      v-event:mouseleave="hoveringHtml = false"
-      v-class:flex-grow="hoveringHtml || !hoveringJs"
-      class="w-8 md:w-12 lg:w-16 xl:w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis flex-grow"
+      v-component
+      v-data:hovering-html="false"
+      v-data:hovering-js="false"
+      class="flex items-stretch"
     >
+      <div
+        v-event:mouseenter="hoveringHtml = true"
+        v-event:mouseleave="hoveringHtml = false"
+        v-class:flex-grow="hoveringHtml || !hoveringJs"
+        class="w-8 md:w-12 lg:w-16 xl:w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis flex-grow"
+      >
 
 ```html
-<%- include(`/examples/${name}/${name}.html`) %>
+<%- include(htmlFile) %>
 ```
 
-    </div>
-    <div class="w-2 flex-shrink-0 bg-white dark:bg-gray-900"></div>
-    <div
-      v-event:mouseenter="hoveringJs = true"
-      v-event:mouseleave="hoveringJs = false"
-      v-class:flex-grow="hoveringJs || !hoveringHtml"
-      class="w-8 md:w-12 lg:w-16 xl:w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis flex-grow"
-    >
+      </div>
+      <div class="w-2 flex-shrink-0 bg-white dark:bg-gray-900"></div>
+      <div
+        v-event:mouseenter="hoveringJs = true"
+        v-event:mouseleave="hoveringJs = false"
+        v-class:flex-grow="hoveringJs || !hoveringHtml"
+        class="w-8 md:w-12 lg:w-16 xl:w-24 flex-shrink-0 transition-all overflow-hidden overflow-ellipsis flex-grow"
+      >
 
 ```js
-<%- include(`/examples/${name}/${name}.js`) %>
+<%- include(jsFile) %>
 ```
 
+      </div>
     </div>
-  </div>
+  <% } %>
 </div>

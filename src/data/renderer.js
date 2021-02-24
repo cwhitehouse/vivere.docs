@@ -9,6 +9,10 @@ module.exports = {
     return fs.readdirSync(directory);
   },
 
+  doesFileExist: (file) => {
+    return fs.existsSync(file);
+  },
+
   titleize: (string) => {
     return string.split('-').map(s => `${s[0].toUpperCase()}${s.slice(1)}`).join(' ');
   },
