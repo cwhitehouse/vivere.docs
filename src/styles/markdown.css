@@ -126,6 +126,9 @@
   @apply mt-16;
 }
 
+.markdown .example pre {
+  @apply h-full;
+}
 .markdown .example, .markdown .example + p {
   @apply mt-8;
 }

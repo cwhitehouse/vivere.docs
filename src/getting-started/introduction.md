@@ -52,8 +52,7 @@ Let's say we want our website to have an interactive counter for our guests to p
     <div
       v-component
       v-data:count="0"
-    >
-    </div>
+    ></div>
   </body>
 </html>
 ```
