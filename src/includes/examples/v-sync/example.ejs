@@ -5,43 +5,49 @@
   v-data:selection="null"
   v-data:checked="false"
   v-data:radio-selection="null"
-  class="p-8 flex flex-col items-stretch space-y-4"
+  class="p-8 grid grid-cols-8 gap-x-4 gap-y-4"
 >
-  <div class="flex items-start space-x-8">
+  <div class="col-span-3">
     <input
       type="text"
       v-sync="text"
       placeholder="Try me!"
-      class="flex-1"
+      class="max-w-full"
     />
-    <p
-      v-text="text"
-      class="flex-1 py-1"
-    ></p>
-    <button
-      class="button flex-1"
-      v-event:click="text = 'Reset!'"
-    >Reset Text</button>
   </div>
-  <div class="flex items-start space-x-8">
+  <p
+    v-text="text"
+    class="col-span-3 whitespace-pre-wrap break-all pt-1 mt-0.5"
+  ></p>
+  <div class="col-span-2">
+    <button
+      v-event:click="text = 'Reset!'"
+      class="button w-full"
+    >Reset</button>
+  </div>
+
+  <div class="col-span-3">
     <textarea
       v-sync="paragraph"
       placeholder="Try me!"
-      class="flex-1"
+      class="max-w-full"
     ></textarea>
-    <p
-      v-text="paragraph"
-      class="flex-1 py-1"
-    ></p>
-    <button
-      class="button flex-1"
-      v-event:click="paragraph = 'Reset!'"
-    >Reset Paragraph</button>
   </div>
-  <div class="flex items-start space-x-8">
+  <p
+    v-text="paragraph"
+    class="col-span-3 whitespace-pre-wrap break-all pt-1 mt-0.5"
+  ></p>
+  <div class="col-span-2">
+    <button
+      class="button w-full"
+      v-event:click="paragraph = 'Reset!'"
+    >Reset</button>
+  </div>
+
+  <div class="col-span-3">
     <select
       v-sync="selection"
-      class="flex-1"
+      class="max-w-full"
     >
       <option value="rome">Rome</option>
       <option value="paris">Paris</option>
@@ -50,29 +56,32 @@
       <option value="tokyo">Tokyo</option>
       <option value="abuja">Abuja</option>
     </select>
-    <p
-      v-text="selection"
-      class="flex-1 py-1"
-    ></p>
-    <button
-      class="button flex-1"
-      v-event:click="selection = 'rome'"
-    >Reset Selection</button>
   </div>
-  <div class="flex items-start space-x-8">
-    <div class="flex-1">
-      <input
-        type="checkbox"
-        v-sync="checked"
-      />
-    </div>
-    <p
-      v-text="checked"
-      class="flex-1 py-1"
-    ></p>
+  <p
+    v-text="selection"
+    class="col-span-3 whitespace-pre-wrap break-all pt-1 mt-0.5"
+  ></p>
+  <div class="col-span-2">
     <button
-      class="button flex-1"
+      class="button w-full"
+      v-event:click="selection = 'rome'"
+    >Reset</button>
+  </div>
+
+  <div class="col-span-3">
+    <input
+      type="checkbox"
+      v-sync="checked"
+    />
+  </div>
+  <p
+    v-text="checked"
+    class="col-span-3 whitespace-pre-wrap break-all pt-1 mt-0.5"
+  ></p>
+  <div class="col-span-2">
+    <button
+      class="button w-full"
       v-event:click="checked = !checked"
-    >Toggle Checked</button>
+    >Toggle</button>
   </div>
 </div>
