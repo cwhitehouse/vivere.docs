@@ -40,7 +40,7 @@
 }
 
 .markdown > p {
-  @apply font-light leading-relaxed;
+  @apply leading-relaxed;
 }
 .markdown > p + h2, .markdown > p + .definition {
   @apply pt-16;
@@ -62,7 +62,7 @@
 }
 
 .markdown > p > code, .markdown > code {
-  @apply text-sm font-mono font-medium text-indigo-800 bg-indigo-100 rounded px-1;
+  @apply text-sm font-mono text-indigo-800 bg-indigo-100 rounded px-1;
   padding-top: 2px; padding-bottom: 2px;
 }
 .dark .markdown > p > code, .dark .markdown > code {
@@ -70,7 +70,7 @@
 }
 
 .markdown pre {
-  @apply text-sm font-mono font-medium text-indigo-900 leading-loose bg-gray-100 font-light rounded px-3 py-2 overflow-hidden;
+  @apply text-sm font-mono text-indigo-900 leading-loose bg-gray-100 rounded px-3 py-2 overflow-hidden;
 }
 @screen lg {
   .markdown pre {
