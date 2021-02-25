@@ -57,6 +57,9 @@
 .markdown > p + pre {
   @apply mt-6;
 }
+.markdown > p + .example {
+  @apply mt-8;
+}
 
 .markdown > p > code, .markdown > code {
   @apply text-sm font-mono font-medium text-indigo-800 bg-indigo-100 rounded px-1;
@@ -134,12 +137,15 @@
 .markdown .example pre {
   @apply h-full;
 }
-.markdown .example, .markdown .example + p {
-  @apply mt-8;
-}
 .markdown .example + h2, .markdown .example + .definition {
   @apply mt-20;
 }
 .markdown .example + h4 {
   @apply mt-12;
+}
+.markdown .example + .example {
+  @apply mt-2;
+}
+.markdown .example + p {
+  @apply mt-8;
 }

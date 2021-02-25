@@ -69,22 +69,22 @@ Expressions are generally interpreted in one of three ways:
 
 Data expressions are used alongside directives like `v-data` or `v-store`. They represent data we want to pass to our components. Since the data is coming from outside the system, it will parse the data expression as a primitive, such as a `number`, `string` or `JSON` object.
 
-<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'data-expressions' })) %>
+<%- renderer.markdownSafe(include('/examples/example', { name: 'data-expressions' })) %>
 
 #### Method Expression
 
 Method expressions are parsed by `v-event` directives when they are triggered. Method expressions represent a function we want to invoke. They can either refer to a function in our component's `methods`, or a basic assignment expression that is executed in the context of `this` component. Inside basic assignment expressions, we can use some basic operators like not (`!`) or ternary expressions (`? : ;`).
 
-<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'method-expressions' })) %>
+<%- renderer.markdownSafe(include('/examples/example', { name: 'method-expressions' })) %>
 
 #### Boolean Expression
 
 Boolean expressions are parsed by directives like `v-if` or `v-disabled` that toggle some property based on a parsed boolean expression. These expressions can either reference a component's `methods`, or evaluate some comparison operator, such as `>` or `<`. They also support ternary expressions, and basic logicical operators (`||` and/pr `&&`).
 
-<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'boolean-expressions' })) %>
+<%- renderer.markdownSafe(include('/examples/example', { name: 'boolean-expressions' })) %>
 
 #### String Expression
 
 String expressions are parsed by directives like `v-text` or `v-style`. They are either evaluated as methods that are expected to return strings, or as strings themselves. Like other expressions, basic operators like ternary operators are available to help accomodate basic logic.
 
-<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'string-expressions' })) %>
+<%- renderer.markdownSafe(include('/examples/example', { name: 'string-expressions' })) %>

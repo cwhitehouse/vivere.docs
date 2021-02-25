@@ -99,7 +99,7 @@ While directives allow us to quickly use some prescribed functionality, vivere a
 
 By passing an argument to the `v-component` directive, we can tell vivere to lookup a component definition that we registered before setup.
 
-<%- renderer.markdownSafe(include('/code-pair/code-pair', { name: 'counter' })) %>
+<%- renderer.markdownSafe(include('/examples/example', { name: 'partial-counter' })) %>
 
 The `data()` method returns an object that defines our initial data properties, just like the `v-data` directive above. We wrap any functions we write in the methods object, so that they're properly parsed by vivere, exposed to directives, and `this` correctly represents our component when they are invoked.
 
