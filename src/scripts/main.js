@@ -19,5 +19,5 @@ Vivere.register('VStyle', VStyle);
 Vivere.register('Page', Page);
 
 document.addEventListener('turbo:render', () => {
-  Prism.highlight();
+  Prism.highlightAll();
 });
