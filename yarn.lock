@@ -86,6 +86,11 @@
   dependencies:
     purgecss "^3.1.3"
 
+"@hotwired/turbo@^7.0.0-beta.4":
+  version "7.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.0.0-beta.4.tgz#be6d7014902d45121f56358d360e0810bad4c19e"
+  integrity sha512-koox7UeA2Na0tLBPesxNO3nk/gtezRxF33NHKbAx+zv5s2k1Xh/orB5xNr5dAckoUj3Pdpytnw41WH4QB1jYBg==
+
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz#d4b3549a5db5de2683e0c1071ab4f140904bbf69"
@@ -4636,13 +4641,13 @@ vendors@^1.0.0:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vivere@^0.0.35:
-  version "0.0.35"
-  resolved "https://registry.yarnpkg.com/vivere/-/vivere-0.0.35.tgz#8aa3faa175e3d9bfa2470e525b6f6f9e51f5b174"
-  integrity sha512-R8saPpOreAxrs9V4upF1irj0Kst2Lg+SAEBLeew7CkQJX3Zugq7JqbI5xP4yuFXesYrVtrclWpQp88igLM9a+A==
+vivere@^0.0.36:
+  version "0.0.36"
+  resolved "https://registry.yarnpkg.com/vivere/-/vivere-0.0.36.tgz#6ed50817e3bd5315aec6d8898ba809c5833b326c"
+  integrity sha512-UqtdPYJsaYo3EKdvhU0Y6EMbfJDqfohGtsQCARrrSb/QixmE61UMmB9CjMYMZSogT263RZtPsgTD10ASfI/abQ==
   dependencies:
+    "@hotwired/turbo" "^7.0.0-beta.4"
     tailwindcss "^1.4.6"
-    turbolinks "^5.2.0"
 
 void-elements@^2.0.1:
   version "2.0.1"

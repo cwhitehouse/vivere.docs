@@ -1,6 +1,6 @@
 import Prism from 'prismjs';
 import Vivere from 'vivere';
-import Turbolinks from 'turbolinks';
+import * as Turbo from '@hotwired/turbo';
 
 import FancyCounter from './components/fancy-counter';
 import FilterableListItem from './components/filterable-list-item';
@@ -17,6 +17,3 @@ Vivere.register('ToDoList', ToDoList);
 Vivere.register('VHref', VHref);
 Vivere.register('VStyle', VStyle);
 Vivere.register('Page', Page);
-
-Vivere.setup();
-Turbolinks.start();
