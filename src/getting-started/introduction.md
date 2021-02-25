@@ -13,7 +13,7 @@ next: getting-started/concepts
 
 Vivere is a javascript frameworks built to help you enhance your server generated, or static websites with basic interactivity. It shares a similar purpose to frameworks like Stimulus, but borrows the concepts of components and reactivity from frameworks like Vue and React.
 
-## Baby's First App
+## Our First App
 
 To get started with vivere, we add it to our project as we would any other node module:
 
