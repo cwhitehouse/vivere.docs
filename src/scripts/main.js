@@ -17,3 +17,7 @@ Vivere.register('ToDoList', ToDoList);
 Vivere.register('VHref', VHref);
 Vivere.register('VStyle', VStyle);
 Vivere.register('Page', Page);
+
+document.addEventListener('turbo:render', () => {
+  Prism.highlight();
+});
