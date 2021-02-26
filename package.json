@@ -23,7 +23,7 @@
     "prismjs": "^1.23.0",
     "tailwindcss": "^2.0.3",
     "turbolinks": "^5.2.0",
-    "vivere": "^0.0.37"
+    "vivere": "^0.0.38"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
