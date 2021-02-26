@@ -31,6 +31,7 @@
         v-if="true"
         v-event:mouseenter="showingModal = true"
         class="transition-all px-4 py-2 border-2 border-white dark:border-gray-900 text-gray-500 dark:text-gray-400"
+        aria-label="Choose Dark Mode Setting"
         hidden
       >
         <div v-if="mode === 'auto'">
@@ -58,6 +59,7 @@
           <button
             v-event:click="mode = '<%= mode %>'"
             class="flex items-center hover:bg-indigo-100 dark:hover:bg-gray-700 px-4 py-2"
+            aria-label="Select Dark Mode Setting: <%= mode %>"
           >
             <!--
               TAILWIND
