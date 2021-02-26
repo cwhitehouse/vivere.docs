@@ -18,19 +18,6 @@ Vivere.register('VHref', VHref);
 Vivere.register('VStyle', VStyle);
 Vivere.register('Page', Page);
 
-document.addEventListener('turbo:click', (e) => {
-  console.log('turbo:click');
-  console.log(`  -> ${e.detail.url}`);
-});
-document.addEventListener('turbo:before-fetch-request', (e) => {
-  console.log('turbo:before-fetch-request');
-  console.log(e.detail.fetchOptions);
-});
-document.addEventListener('turbo:before-render', (e) => {
-  console.log('turbo:before-render');
-  console.log(e.detail.newBody);
-});
 document.addEventListener('turbo:render', (e) => {
-  console.log('turbo:render');
   Prism.highlightAll();
 });

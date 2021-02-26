@@ -16,13 +16,13 @@
     "build": "run-s clean:* build:*"
   },
   "dependencies": {
+    "@hotwired/turbo": "^7.0.0-beta.4",
     "autoprefixer": "^10.2.4",
     "postcss": "^8.2.5",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.0",
     "prismjs": "^1.23.0",
     "tailwindcss": "^2.0.3",
-    "turbolinks": "^5.2.0",
     "vivere": "^0.0.38"
   },
   "devDependencies": {
