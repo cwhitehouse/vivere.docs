@@ -1,6 +1,8 @@
 import Prism from 'prismjs';
-import Vivere from 'vivere';
+import { Vivere } from 'vivere';
 import * as Turbo from '@hotwired/turbo';
+
+console.log(Vivere);
 
 import FancyCounter from './components/fancy-counter';
 import FilterableListItem from './components/filterable-list-item';

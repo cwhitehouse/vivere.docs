@@ -1,52 +1,42 @@
 export default {
-  data() {
-    return {
-      state: 'show',
-      title: null,
-      toDo: {},
-    };
-  },
+  state: 'show',
+  title: null,
+  toDo: {},
 
   passed: {
     filterText: { default: null },
   },
 
-  computed: {
-    validTitle() {
-      const { title } = this;
-      return title && !!title.trim();
-    },
-
-    matchesFilter() {
-      const { filterText, toDo } = this;
-      const { title } = toDo;
-
-      if (filterText && !!filterText.trim())
-        return title.toLowerCase().includes(filterText.toLowerCase());
-
-      return true;
-    },
+  get validTitle() {
+    const { title } = this;
+    return title && !!title.trim();
   },
 
-  watch: {
-    state() {
-      if (this.state === 'edit') {
-        this.title = this.toDo.title;
-        this.$nextRender(() => { this.$refs.title.focus(); })
-      }
-    },
+  get matchesFilter() {
+    const { filterText, toDo } = this;
+    const { title } = toDo;
+
+    if (filterText && !!filterText.trim())
+      return title.toLowerCase().includes(filterText.toLowerCase());
+
+    return true;
   },
 
-  methods: {
-    saveTitle() {
-      if (this.validTitle) {
-        this.toDo.title = this.title;
-        this.state = 'show';
-      }
-    },
+  onStateChanged() {
+    if (this.state === 'edit') {
+      this.title = this.toDo.title;
+      this.$nextRender(() => { this.$refs.title.focus(); })
+    }
+  },
 
-    delete() {
-      this.$destroy();
-    },
+  saveTitle() {
+    if (this.validTitle) {
+      this.toDo.title = this.title;
+      this.state = 'show';
+    }
+  },
+
+  delete() {
+    this.$destroy();
   },
 };

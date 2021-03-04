@@ -1,11 +1,7 @@
 export default {
-  data() {
-    return {
-      showNav: false,
-      systemDark: false,
-      showingModal: false,
-    };
-  },
+  showNav: false,
+  systemDark: false,
+  showingModal: false,
 
   stored: {
     mode: {
@@ -14,32 +10,28 @@ export default {
     },
   },
 
-  computed: {
-    darkMode() {
-      const { mode, systemDark } = this;
+  get darkMode() {
+    const { mode, systemDark } = this;
 
-      if (mode === 'light') return false;
-      if (mode === 'dark') return true;
-      return systemDark;
-    },
-
-    sortition() {
-      return [['sortIdx'], ['asc']];
-    },
+    if (mode === 'light') return false;
+    if (mode === 'dark') return true;
+    return systemDark;
   },
 
-  methods: {
-    updateSystemDark() {
-      this.systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    },
-
-    selectMode(mode) {
-      this.mode = mode;
-    },
+  get sortition() {
+    return [['sortIdx'], ['asc']];
   },
 
   beforeConnected() {
     this.updateSystemDark();
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.updateSystemDark.bind(this));
+  },
+
+  updateSystemDark() {
+    this.systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  },
+
+  selectMode(mode) {
+    this.mode = mode;
   },
 };

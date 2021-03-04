@@ -1,24 +1,10 @@
 export default {
-  data() {
-    return {
-      width: 0,
-      interval: null,
-    };
-  },
+  width: 0,
+  interval: null,
 
-  computed: {
-    widthPerc() {
-      const { width } = this;
-      return `${width}%`;
-    },
-  },
-
-  methods: {
-    incrementWidth() {
-      this.width += 1;
-      if (this.width > 100)
-        this.width = 0;
-    },
+  get widthPerc() {
+    const { width } = this;
+    return `${width}%`;
   },
 
   connected() {
@@ -26,6 +12,12 @@ export default {
   },
 
   destroyed() {
-    cancelInterval(this.interval);
+    clearInterval(this.interval);
+  },
+
+  incrementWidth() {
+    this.width += 1;
+    if (this.width > 100)
+      this.width = 0;
   },
 };

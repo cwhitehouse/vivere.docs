@@ -16,6 +16,7 @@
   <p v-text="text"></p>
   <button
     v-event:click="text = 'Reset!'"
+    v-disabled="text ==== 'Reset!'"
   >Reset Text</button>
 
   <!-- `v-sync` tracks what is typed into a textarea    -->
@@ -23,6 +24,7 @@
   <p v-text="paragraph"></p>
   <button
     v-event:click="paragraph = 'Reset!'"
+    v-disabled="paragraph ==== 'Reset!'"
   >Reset Paragraph</button>
 
   <!-- `v-sync` tracks the value of the currently       -->
@@ -37,7 +39,8 @@
   </select>
   <p v-text="selection"></p>
   <button
-    v-event:click="selection = 'rome'"
+    v-event:click="selection = 'abuja'"
+    v-disabled="selection ==== 'abuja'"
   >Reset Selection</button>
 
   <!-- `v-sync` tracks the current boolean state        -->

@@ -22,6 +22,7 @@
   <div class="col-span-2">
     <button
       v-event:click="text = 'Reset!'"
+      v-disabled="text === 'Reset!'"
       class="button w-full"
     >Reset</button>
   </div>
@@ -41,6 +42,7 @@
     <button
       class="button w-full"
       v-event:click="paragraph = 'Reset!'"
+      v-disabled="paragraph === 'Reset!'"
     >Reset</button>
   </div>
 
@@ -64,7 +66,8 @@
   <div class="col-span-2">
     <button
       class="button w-full"
-      v-event:click="selection = 'rome'"
+      v-event:click="selection = 'abuja'"
+      v-disabled="selection === 'abuja'"
     >Reset</button>
   </div>
 

@@ -1,56 +1,47 @@
 let id = 3;
 
 export default {
-  data() {
-    return {
-      filterText: null,
-      sortMode: null,
-      creating: false,
-      title: null,
+  filterText: null,
+  sortMode: null,
+  creating: false,
+  title: null,
+
+  get orderBy() {
+    const { sortMode } = this;
+
+    switch (sortMode) {
+      case 'idAsc':
+        return [['toDo.id'], ['asc']];
+      case 'idDesc':
+        return [['toDo.id'], ['desc']];
+      case 'titleAsc':
+        return [['toDo.title'], ['asc']];
+      case 'titleDesc':
+        return [['toDo.title'], ['desc']];
+      default:
+        return null;
     }
   },
 
-  computed: {
-    orderBy() {
-      const { sortMode } = this;
-
-      switch (sortMode) {
-        case 'idAsc':
-          return [['toDo.id'], ['asc']];
-        case 'idDesc':
-          return [['toDo.id'], ['desc']];
-        case 'titleAsc':
-          return [['toDo.title'], ['asc']];
-        case 'titleDesc':
-          return [['toDo.title'], ['desc']];
-        default:
-          return null;
-      };
-    },
-
-    validTitle() {
-      const { title } = this;
-      return title && !!title.trim();
-    },
+  get validTitle() {
+    const { title } = this;
+    return title && !!title.trim();
   },
 
-  watch: {
-    creating() {
-      if (this.creating) {
-        this.title = null;
-        this.$nextRender(() => { this.$refs.title.focus(); });
-      }
-    },
+  onCreatingChanged() {
+    if (this.creating) {
+      this.title = null;
+      this.$nextRender(() => { this.$refs.title.focus(); });
+    }
   },
 
-  methods: {
-    create() {
-      const { title, validTitle } = this;
+  create() {
+    const { title, validTitle } = this;
 
-      if (!validTitle) return;
+    if (!validTitle) return;
 
-      id += 1;
-      const html = `
+    id += 1;
+    const html = `
 <div
   v-component="to-do-item"
   v-data:to-do='${JSON.stringify({ id, title })}'
@@ -123,10 +114,9 @@ export default {
     >Cancel</button>
   </div>
 </div>
-      `;
+    `;
 
-      this.$attach(html, 'items');
-      this.creating = false;
-    },
-  }
+    this.$attach(html, 'items');
+    this.creating = false;
+  },
 };
