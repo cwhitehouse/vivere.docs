@@ -15,16 +15,16 @@
   />
   <p v-text="text"></p>
   <button
-    v-event:click="text = 'Reset!'"
-    v-disabled="text ==== 'Reset!'"
+    v-event:click="text = 'Reset text...'"
+    v-disabled="text ==== 'Reset text...'"
   >Reset Text</button>
 
   <!-- `v-sync` tracks what is typed into a textarea    -->
   <textarea v-sync="paragraph"></textarea>
   <p v-text="paragraph"></p>
   <button
-    v-event:click="paragraph = 'Reset!'"
-    v-disabled="paragraph ==== 'Reset!'"
+    v-event:click="paragraph = 'Reset paragraph...'"
+    v-disabled="paragraph ==== 'Reset paragraph...'"
   >Reset Paragraph</button>
 
   <!-- `v-sync` tracks the value of the currently       -->

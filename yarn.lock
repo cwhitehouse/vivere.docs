@@ -4581,10 +4581,10 @@ vendors@^1.0.0:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vivere@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/vivere/-/vivere-0.1.3.tgz#9f4d9979e224fa019cea3650780cfd82351b2332"
-  integrity sha512-W81teqUtNeDu5wCo42YYs/LRFFPKPHCamromx1+u7wgUJeSA7aAg6CWxjS5bxpBbsf2nylMyMNZTgxCvDJUvIw==
+vivere@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/vivere/-/vivere-0.1.4.tgz#f514079d40bd968005384c57d8d24210f7acd624"
+  integrity sha512-vuzULpZuB874/nrrPR7vDj9mTYiJ0rjNbwfPz3mxk8kvKAZeP9PBG0+0xckRk6PYY1Zar160gGI3iNoR7nMX7w==
 
 void-elements@^2.0.1:
   version "2.0.1"
