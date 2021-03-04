@@ -2,6 +2,8 @@
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.setUseGitIgnore(false);
+
   eleventyConfig.addPlugin(cacheBuster({
     outputDirectory: 'dist',
   }));
@@ -11,16 +13,24 @@ module.exports = function(eleventyConfig) {
   const md = markdownIt({ html: true }).use(markdownItAnchor);
   eleventyConfig.setLibrary("md", md);
 
-  eleventyConfig.setUseGitIgnore(false);
+  eleventyConfig.setBrowserSyncConfig({
+    // scripts in body conflict with Turbolinks
+    snippetOptions: {
+      rule: {
+        match: /<\/head>/i,
+        fn: function(snippet, match) {
+          return snippet + match;
+        }
+      }
+    }
+  });
 
   eleventyConfig.addWatchTarget("src/assets");
   eleventyConfig.addPassthroughCopy("src/assets");
 
-  eleventyConfig.addWatchTarget("tmp/styles/main.css");
-  eleventyConfig.addPassthroughCopy({ "tmp/styles": "styles" });
-
-  eleventyConfig.addWatchTarget("tmp/scripts/main.js");
-  eleventyConfig.addPassthroughCopy({ "tmp/scripts": "scripts" });
+  eleventyConfig.addWatchTarget("tmp/main.css");
+  eleventyConfig.addWatchTarget("tmp/main.js");
+  eleventyConfig.addPassthroughCopy({ "tmp": "." });
 
   return {
     dir: {

@@ -4,14 +4,14 @@
   "license": "MIT",
   "scripts": {
     "clean:dist": "rimraf dist",
-    "clean:temp": "rimraf temp",
+    "clean:tmp": "rimraf tmp",
     "clean": "run-s clean:*",
     "serve:webpack": "webpack --mode development --watch",
-    "serve:postcss": "postcss src/styles/main.css --o tmp/styles/main.css --watch",
+    "serve:postcss": "postcss src/styles/main.css --o tmp/main.css --watch",
     "serve:eleventy": "ELEVENTY_ENV=development eleventy --serve",
     "serve": "npm-run-all clean:* --parallel serve:*",
     "build:webpack": "webpack --mode production",
-    "build:postcss": "NODE_ENV=production postcss src/styles/main.css --o tmp/styles/main.css",
+    "build:postcss": "NODE_ENV=production postcss src/styles/main.css --o tmp/main.css",
     "build:eleventy": "ELEVENTY_ENV=production eleventy",
     "build": "run-s clean:* build:*"
   },

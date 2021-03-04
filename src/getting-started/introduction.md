@@ -109,16 +109,10 @@ Within a component definition, we can also write special properties called `comp
 
 ```js
 const Counter = {
-  data() {
-    return {
-      count: 0,
-    };
-  },
+  count: 0,
 
-  computed: {
-    canDecrement() {
-      return this.count > 0;
-    },
+  get canDecrement() {
+    return this.count > 0;
   },
 };
 ```

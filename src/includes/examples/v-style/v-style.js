@@ -1,26 +1,15 @@
 const VStyle = {
-  data() {
-    return {
-      width: 0,
-      interval: null,
-    };
+  // Data
+  width: 0,
+  interval: null,
+
+  // Computed
+  get widthPerc() {
+    const { width } = this;
+    return `${width}%`;
   },
 
-  computed: {
-    widthPerc() {
-      const { width } = this;
-      return `${width}%`;
-    },
-  },
-
-  methods: {
-    incrementWidth() {
-      this.width += 1;
-      if (this.width > 100)
-        this.width = 0;
-    },
-  },
-
+  // Lifecycle Callbacks
   connected() {
     const binding =
       this.incrementWidth.bind(this);
@@ -31,6 +20,13 @@ const VStyle = {
 
   destroyed() {
     cancelInterval(this.interval);
+  },
+
+  // Methods
+  incrementWidth() {
+    this.width += 1;
+    if (this.width > 100)
+      this.width = 0;
   },
 };
 

@@ -1,17 +1,12 @@
 const Counter = {
-  data() {
-    return {
-      count: 0,
-    };
+  count: 0,
+
+  decrementCount() {
+    this.count -= 1;
   },
 
-  methods: {
-    decrementCount() {
-      this.count -= 1;
-    },
-    incrementCount() {
-      this.count += 1;
-    },
+  incrementCount() {
+    this.count += 1;
   },
 };
 Vivere.register('Counter', Counter);
