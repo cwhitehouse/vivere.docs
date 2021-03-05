@@ -22,7 +22,7 @@ yarn install vivere
 ```
 
 ```js
-import Vivere from 'vivere';
+import { Vivere } from 'vivere';
 ```
 
 Once it's been added to our project, it will automatically parse the DOM to add functionality.
