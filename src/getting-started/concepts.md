@@ -48,7 +48,7 @@ In addition to tracking changes to primitives like numbers and strings, Vivere a
 
 #### Component Data
 
-Any data defined in the `data()` function of a Component is automatically set up to be reactive. This allows you to track and use per-Component properties. These can either be passed via the `v-data` directive from your server, or per Component properties (e.g. front-end state).
+Any data defined in our Component definition is automatically set up to be reactive. This allows you to track and use per-Component properties. These can either be passed via the `v-data` directive from your server, or defined in javascript for dynamic Component properties (e.g. front-end state).
 
 #### Passed Properties
 
