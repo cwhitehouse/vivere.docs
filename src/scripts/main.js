@@ -1,4 +1,3 @@
-import Prism from 'prismjs';
 import { Vivere } from 'vivere';
 import * as Turbo from '@hotwired/turbo';
 
@@ -19,7 +18,3 @@ Vivere.register('ToDoList', ToDoList);
 Vivere.register('VHref', VHref);
 Vivere.register('VStyle', VStyle);
 Vivere.register('Page', Page);
-
-document.addEventListener('turbo:render', (e) => {
-  Prism.highlightAll();
-});

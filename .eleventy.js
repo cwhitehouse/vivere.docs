@@ -1,9 +1,11 @@
 // docs: https://www.11ty.io/docs/config/
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
 
+  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(cacheBuster({
     outputDirectory: 'dist',
   }));
