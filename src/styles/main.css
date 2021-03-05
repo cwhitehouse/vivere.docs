@@ -18,7 +18,7 @@ html {
   @apply bg-indigo-400;
 }
 
-*[hidden] { display: none; }
+*[hidden], *[v-hide] { display: none; }
 
 
 /* DARK MODE */

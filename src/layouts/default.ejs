@@ -26,7 +26,10 @@
     <main class="k-container relative">
       <%- content %>
     </main>
-    <div class="absolute top-0 right-0 m-8">
+    <div
+      v-hide
+      class="absolute top-0 right-0 m-8"
+    >
       <button
         v-if="true"
         v-event:mouseenter="showingModal = true"
