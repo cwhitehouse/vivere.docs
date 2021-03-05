@@ -9,7 +9,7 @@
     "serve:webpack": "webpack --mode development --watch",
     "serve:postcss": "postcss src/styles/main.css --o tmp/main.css --watch",
     "serve:eleventy": "ELEVENTY_ENV=development eleventy --serve",
-    "serve": "npm-run-all clean:* --parallel serve:*",
+    "serve": "npm-run-all --parallel serve:*",
     "build:webpack": "webpack --mode production",
     "build:postcss": "NODE_ENV=production postcss src/styles/main.css --o tmp/main.css",
     "build:eleventy": "ELEVENTY_ENV=production eleventy",
@@ -23,7 +23,7 @@
     "postcss-import": "^14.0.0",
     "prismjs": "^1.23.0",
     "tailwindcss": "^2.0.3",
-    "vivere": "^0.1.4"
+    "vivere": "^0.1.6"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
