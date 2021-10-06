@@ -1,12 +1,17 @@
+import { VivereComponent } from 'vivere';
+
 let id = 3;
 
-export default {
-  filterText: null,
-  sortMode: null,
-  creating: false,
-  title: null,
+export default class extends VivereComponent {
+  filterText = null;
 
-  get orderBy() {
+  sortMode = null;
+
+  creating = false;
+
+  title = null;
+
+  get orderBy(): [string[], string[]] {
     const { sortMode } = this;
 
     switch (sortMode) {
@@ -21,21 +26,25 @@ export default {
       default:
         return null;
     }
-  },
+  }
 
-  get validTitle() {
+  get validTitle() : boolean {
     const { title } = this;
     return title && !!title.trim();
-  },
+  }
 
-  onCreatingChanged() {
+  onCreatingChanged(): void {
     if (this.creating) {
       this.title = null;
-      this.$nextRender(() => { this.$refs.title.focus(); });
+      this.$nextRender(() => {
+        const { title } = this.$refs;
+        if (title instanceof HTMLElement)
+          title.focus();
+      });
     }
-  },
+  }
 
-  create() {
+  create(): void {
     const { title, validTitle } = this;
 
     if (!validTitle) return;
@@ -118,5 +127,5 @@ export default {
 
     this.$attach(html, 'items');
     this.creating = false;
-  },
-};
+  }
+}

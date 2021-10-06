@@ -1,0 +1,7 @@
+node_modules
+dist
+tmp
+src/includes/**/*
+
+# Ignore root level file (config files)
+*.js

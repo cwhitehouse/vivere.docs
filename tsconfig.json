@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": [ "dom", "esnext" ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "rootDir": ".",
+    "strict": false,
+    "target": "es6",
+    "noEmit": true,
+    "removeComments": true,
+  },
+  "exclude": [
+    "dist",
+    "temp",
+    "src/includes"
+  ]
+}
