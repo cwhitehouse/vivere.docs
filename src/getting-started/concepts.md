@@ -44,7 +44,7 @@ Vivere uses a reactivity system similar to other component based frameworks. Whe
 
 This makes sure that you can just point your Directives at any value you care about, and Vivere will take care of syncing those attributes with your properties. This also extends to `computed` properties, which allow you to write methods that process and combine any reactive data you are tracking.
 
-In addition to tracking changes to primitives like numbers and strings, Vivere also has special logic to handle array and object reactivity. For arrays, Vivere also listens for `push`, `splice`, and `unshift` operations, and will automatically react to those events. Likewise, Vivere will automatically make new properties on reactive objects reactive, so the entire object tree can be listened to.
+In addition to tracking changes to primitives like numbers and strings, Vivere also has special logic to handle array and object reactivity. For arrays, Vivere also listens for `push`, `pop`, `splice`, `shift` and `unshift` operations, and will automatically react to those events. Likewise, Vivere will automatically make new properties on reactive objects reactive, so the entire object tree can be listened to.
 
 #### Component Data
 
