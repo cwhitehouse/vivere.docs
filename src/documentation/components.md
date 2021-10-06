@@ -52,10 +52,10 @@ The `passed` attribute on a component allows us to set up rules and expectations
 export default class extends VivereComponent {
   count = 0;
 
-  passed: {
+  $passed = {
     active: { required: true },
     count: {},
-  },
+  };
 };
 ```
 

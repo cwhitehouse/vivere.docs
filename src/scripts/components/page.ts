@@ -9,7 +9,7 @@ export default class extends VivereComponent {
 
   mode = 'auto';
 
-  $stored: {
+  $stored = {
     mode: {
       type: 'local',
       default: 'auto',
