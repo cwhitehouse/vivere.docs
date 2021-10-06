@@ -1,0 +1,13 @@
+<div
+  v-component="v-class"
+  class="flex items-center space-x-4"
+>
+  <button
+    v-event:click="blue = !blue"
+    class="button lg:flex-1"
+  >Toggle Classes</button>
+  <p
+    v-class="textClasses"
+    class="flex-1"
+  >This is a blue message...</p>
+</div>

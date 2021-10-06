@@ -15,6 +15,10 @@
   @apply pt-16;
 }
 
+.markdown > hr {
+  @apply border-t-2 rounded my-16;
+}
+
 
 .markdown > h3 {
   @apply text-xl text-gray-700;
@@ -139,6 +143,9 @@
 }
 .markdown .example + h2, .markdown .example + .definition {
   @apply mt-20;
+}
+.markdown .example + h3 {
+  @apply mt-16;
 }
 .markdown .example + h4 {
   @apply mt-12;

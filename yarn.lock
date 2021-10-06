@@ -5078,10 +5078,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vivere@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/vivere/-/vivere-0.1.6.tgz#42640440fc3a4cee4465bd1729280931106347fc"
-  integrity sha512-0K0DXaO2ldXnMcx7u/itzXk3697tMhn9y64L419tl3rks1UOEk8bZEjfKcTt/uf7nbvsfM817PWZBObBpB432Q==
+vivere@^0.1.16:
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/vivere/-/vivere-0.1.16.tgz#644fe90e5ab8db7c93d66ebf8577ff51de047fd9"
+  integrity sha512-7QTdbY9qatxTbfz+zIGwxCkV25iSIJDhtFcwuILMwccjKKM50by0TARiPpSkBBmXx6S9lsExAhfHdQV95pc4Gg==
 
 void-elements@^2.0.1:
   version "2.0.1"

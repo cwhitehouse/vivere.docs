@@ -1,20 +1,20 @@
-const ListItem = {
+class ListItem extends VivereComponent {
     // While not strictly necessary, it can be nice to
     // call out that we have a property named toDo
-    toDo: {},
+    toDo = {};
 
     // `title` is synced to our `input` while editing
-    title: null,
+    title = null;
 
     // `state` controls which view we see
-    state: 'show',
+    state = 'show';
 
   // We don't want to allow saving a blank
   // title when editing the toDo
   get validTitle() {
     const { title } = this;
     return !!title?.trim();
-  },
+  }
 
   // Invoked from the `v-filter` directive, this method
   // returns true if this item should be shown
@@ -26,7 +26,7 @@ const ListItem = {
       return title.toLowerCase().includes(filterText.toLowerCase());
 
     return true;
-  },
+  }
 
   // This watcher will automatically trigger
   // when the state changes
@@ -41,20 +41,19 @@ const ListItem = {
       // that it has been added to the DOM
       this.$nextRender(() => { this.$refs.title.focus(); })
     }
-  },
+  }
 
   saveTitle() {
     if (this.validTitle) {
       this.toDo.title = this.title;
       this.state = 'show';
     }
-  },
+  }
 
   delete() {
     // `$destroy` is an internal vivere method that removes
     // this component from the DOM and performs cleanup
     this.$destroy();
-  },
+  }
 };
-
 Vivere.register('ListItem', ListItem);

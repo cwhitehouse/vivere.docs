@@ -40,6 +40,7 @@ directives:
       name: class
       types:
         - string
+        - 'null'
       description: The class we want to conditionally add to or remove from this element
     modifier:
       name: classes
@@ -85,11 +86,15 @@ For convenience, `v-if` automatically removes the `hidden` attribute from the el
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-if' })) %>
 
+---
+
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.show })) %>
 
 The `v-show` directive works very similarly to `v-if`, but toggles the `hidden` attribute of the element instead of removing the element from DOM. You can choose which directive to use based on whether you require the element to remain within the DOM or not.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-show' })) %>
+
+---
 
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.disabled })) %>
 
@@ -97,23 +102,41 @@ The `v-disabled` directive conditionally adds the `disabled` attribute to an ele
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-disabled' })) %>
 
+---
+
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.href })) %>
 
 The `v-href` directive controls the `href` attribute on an element. If the expression returns null, the `href` attribute is removed, otherwise it is interpreted as a string used as the `href` attribute.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-href' })) %>
 
+---
+
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.class })) %>
 
-The `v-class` directive adds or removes one or more classes to the element. If the expression is evaluated as true, we add the class(es), and if it evaluates as false we remove the class(es). You can use multiple `v-class` directives to toggle multiple classes with differing logic.
+The `v-class` directive adds or removes one or more classes to the element. It can operate in two ways, either by passing a class (or classes) to the directive to add or remove based on a boolean expression, or by passing an expression that will evaluate as a list of classes.
+
+### Boolean Expression
+
+When we included a class (or classes) in our directive, the expression will be interepreted as a boolean expression. If the expression is evaluated as true, we add the class(es), and if it evaluates as false we remove the class(es). You can use multiple `v-class` directives to toggle multiple classes with differing logic.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-class' })) %>
+
+### Class List Expression
+
+For more complicated logic, or personal preference, we can also point the `v-class` directive to an array of classes we want to turn on. Any classes previously added by this `v-class` directive will be removed and any new classes passed are added.
+
+<%- renderer.markdownSafe(include('/examples/example', { name: 'v-class-alt' })) %>
+
+---
 
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.style })) %>
 
 The `v-style` directive automatically updates a style attribute for the element involved. The `name` property controls which attribute we update. The expression is evaluated as a string and passed in as a value for the style.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-style' })) %>
+
+---
 
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.text })) %>
 

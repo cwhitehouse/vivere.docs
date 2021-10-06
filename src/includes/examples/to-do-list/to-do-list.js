@@ -1,22 +1,25 @@
 import axios from 'axios';
 
-const List = {
+class List extends VivereComponent {
   // This will track what's been typed into
   // our text `input` search field
-  filterText: null,
+  filterText = null;
 
   // This will track whichever sort value
   // we've selected in our `select`
-  sortMode: null,
+  sortMode = null;
 
   // Tracks whether we're trying to create
   // a new to do
-  creating: false,
+  creating = false;
 
   // Tracks the title of the new to do
   // from our text `input`
-  title: null,
+  title = null;
 
+  // A computed property that will be
+  // passed to v-sort to control how
+  // we will be sorting
   get orderBy() {
     const { sortMode } = this;
 
@@ -32,12 +35,12 @@ const List = {
       default:
         return null;
     };
-  },
+  }
 
   get validTitle() {
     const { title } = this;
     return !!title?.trim();
-  },
+  }
 
   // This watcher will automatically trigger
   // when `creating` is toggled
@@ -52,7 +55,7 @@ const List = {
       // that it has been added to the DOM
       this.$nextRender(() => { this.$refs.title.focus(); });
     }
-  },
+  }
 
   create() {
     const { title, validTitle } = this;
@@ -69,7 +72,6 @@ const List = {
     this.$attach(html, 'items');
 
     this.creating = false;
-  },
+  }
 };
-
 Vivere.register('List', List);

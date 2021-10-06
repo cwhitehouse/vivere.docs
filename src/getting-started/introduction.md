@@ -7,7 +7,7 @@ next: getting-started/concepts
 
 # Introduction
 
-#### Learn the basics of vivere
+#### Learn the basics of Vivere
 
 ## The Basics
 
@@ -15,7 +15,7 @@ Vivere is a javascript frameworks built to help you enhance your server generate
 
 ## Our First App
 
-To get started with vivere, we add it to our project as we would any other node module:
+To get started with Vivere, we add it to our project as we would any other node module:
 
 ```bash
 yarn install vivere
@@ -29,7 +29,7 @@ Once it's been added to our project, it will automatically parse the DOM to add 
 
 #### Components
 
-Once vivere is installed, we need to designate an element as the root of a vivere component. A component is an object that manages and scopes reactive data.
+Once Vivere is installed, we need to designate an element as the root of a Vivere component. A component is an object that manages and scopes reactive data.
 
 ```html
 <html>
@@ -40,11 +40,11 @@ Once vivere is installed, we need to designate an element as the root of a viver
 </html>
 ```
 
-That attribute that starts with `v-` is called a `directive`. Directives tell vivere to take a specific action when the element is being parsed. This particular directive, `v-component` tells vivere to create a new component, attached to that `div` element.
+That attribute that starts with `v-` is called a `directive`. Directives tell Vivere to take a specific action when the element is being parsed. This particular directive, `v-component` tells Vivere to create a new component, attached to that `div` element.
 
 #### Data
 
-Let's say we want our website to have an interactive counter for our guests to play with. To do that, we're going to want to track a data property on our component called `count`. We can use another directive to tell our vivere component that we want to track a property, and initialize it to 0.
+Let's say we want our website to have an interactive counter for our guests to play with. To do that, we're going to want to track a data property on our component called `count`. We can use another directive to tell our Vivere component that we want to track a property, and initialize it to 0.
 
 ```html
 <html>
@@ -57,7 +57,7 @@ Let's say we want our website to have an interactive counter for our guests to p
 </html>
 ```
 
-Under the hood, vivere is adding a data property to our component instance, initializing the value, and automatically making it reactive.
+Under the hood, Vivere is adding a data property to our component instance, initializing the value, and automatically making it reactive.
 
 #### Interactivity
 
@@ -81,7 +81,7 @@ Our new `v-event` directive will create an event listener for the `click` event.
 
 #### Display
 
-Our next step is to make sure our users know what the current count is. To do that we'll want to ask vivere to automatically display the current count. We can do that with the `v-text` directive, which updates an elements `innerText` with data from our component.
+Our next step is to make sure our users know what the current count is. To do that we'll want to ask Vivere to automatically display the current count. We can do that with the `v-text` directive, which updates an elements `innerText` with data from our component.
 
 If we put all of this together we can create something like this:
 
@@ -95,25 +95,25 @@ We've just built a super basic, interactive application without using much javas
 
 ## Getting Fancy
 
-While directives allow us to quickly use some prescribed functionality, vivere allows us to use any and all javascript we might want to use. To expand what's possible, let's move our component definition out of directives embedded in the HTML, to javascript.
+While directives allow us to quickly use some prescribed functionality, Vivere allows us to use any and all javascript we might want to use. To expand what's possible, let's move our component definition out of directives embedded in the HTML, to javascript.
 
-By passing an argument to the `v-component` directive, we can tell vivere to lookup a component definition that we registered before setup.
+By passing an argument to the `v-component` directive, we can tell Vivere to lookup a component definition that we registered before setup.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'partial-counter' })) %>
 
-The `data()` method returns an object that defines our initial data properties, just like the `v-data` directive above. We wrap any functions we write in the methods object, so that they're properly parsed by vivere, exposed to directives, and `this` correctly represents our component when they are invoked.
+Any properties defined in our class are part of our component as reactive data, just like when using the `v-data` directive above. We wrap any functions we write in the methods object, so that they're properly parsed by Vivere, exposed to directives, and `this` correctly represents our component when they are invoked.
 
 #### Computational Magic
 
 Within a component definition, we can also write special properties called `computed` properties.
 
 ```js
-const Counter = {
-  count: 0,
+class Counter extends VivereComponent {
+  count = 0;
 
   get canDecrement() {
     return this.count > 0;
-  },
+  }
 };
 ```
 
@@ -129,5 +129,5 @@ These new directives, `v-class`, `v-disabled`, and `v-if` let us do more to cont
 
 ## Breaking It Down
 
-Now that we've built a few examples, we can take a closer look at all the parts of a vivere application.
+Now that we've built a few examples, we can take a closer look at all the parts of a Vivere application.
 

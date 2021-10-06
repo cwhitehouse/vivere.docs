@@ -107,6 +107,8 @@ If no value is passed to the `v-component` directive, then we set up an anonymou
 
 By passing a name to the `v-component` directive, Vivere will try and find a component definition that has been previously registered with Vivere by the `Vivere.register` method. These files allow more customizability in setting up components than possible just through directives, and allow us to run any arbitrary code. All of that behavior and data, however, is still scoped to the `v-component` making our lives easier and preventing code leakage.
 
+---
+
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.data })) %>
 
 The `v-data` directive is how we initialize which data attributes we should be tracking with our component. As a reminder, anything passed to `v-data` is automatically reactive. Anonymous components will need to have all of their data passed into the component via `v-data`, while named components can rely on the `data()` property in their component definition.
@@ -127,6 +129,8 @@ If we want to pass data from the server though, we'll need to pass it via `v-dat
 </div>
 ```
 
+---
+
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.store })) %>
 
 The `v-store` directive functions similarly to `v-data`, allowing us to set up reactive data on a component, but it also automatically stores that data in either `localStorage` or `sessionStorage` so it persists beyond the current page. The first time we encounter a `v-store` directive, it initialized with it's default value. Any subsequent visits will attempt to pull the data from `localStorage` or `sessionStorage` (based on which type we chose). Whenever the data is updated, it automatically saves it for us, so we don't need to worry about managing the store ourselves.
@@ -135,15 +139,23 @@ We can control which type of store is used by adding a modifier to the directive
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-store' })) %>
 
+---
+
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.pass })) %>
 
+---
+
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.bind })) %>
+
+---
 
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.sync })) %>
 
 The `v-sync` directive is used to automatically keep our data in sync with an element that allows user input. For example, we can keep track of the text entered into an `input`, the current state of a `select`, or what's been typed into a `textarea`. Likewise, if we manually update the data from our code, the `input`, `select`, or `textarea` will automatically be updated in response.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-sync' })) %>
+
+---
 
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.ref })) %>
 
