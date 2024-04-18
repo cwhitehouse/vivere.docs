@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "lib": [ "dom", "esnext" ],
+    "lib": [ "dom", "esnext", "esnext.array" ],
     "module": "es2015",
     "moduleResolution": "node",
     "noUnusedLocals": true,
