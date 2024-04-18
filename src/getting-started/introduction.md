@@ -25,7 +25,7 @@ yarn install vivere
 import { Vivere } from 'vivere';
 ```
 
-Once it's been added to our project, it will automatically parse the DOM to add functionality.
+Once it's been added to our project, it will automatically listen for the DOM to load and parse the document for relevant attributes to add functionality.
 
 #### Components
 
@@ -101,11 +101,11 @@ By passing an argument to the `v-component` directive, we can tell Vivere to loo
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'partial-counter' })) %>
 
-Any properties defined in our class are part of our component as reactive data, just like when using the `v-data` directive above. We wrap any functions we write in the methods object, so that they're properly parsed by Vivere, exposed to directives, and `this` correctly represents our component when they are invoked.
+Any properties defined in our class are part of our component as reactive data, just like when using the `v-data` directive above. Any methods we add to the new component class are available to our `v-event` directives (automatically inferring `this`).
 
 #### Computational Magic
 
-Within a component definition, we can also write special properties called `computed` properties.
+Within a component definition, we can also write `computed` properties just as we would in a normal javascript class. Vivere makes sure that this property is reactive to any properties it references.
 
 ```js
 class Counter extends VivereComponent {
@@ -117,7 +117,7 @@ class Counter extends VivereComponent {
 };
 ```
 
-We access `canDecrement` just like we do `count` or any other data property, but it will automatically update by running the function we've written whenever any dependecies change. It also automatically tracks `dependencies` as long as they too are reactive, like data properties, or other computed properties.
+We access `canDecrement` just like we do `count` or any other data property, but it will automatically know it should recompute when `count` changes.
 
 #### Check This Out
 

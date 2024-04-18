@@ -1,8 +1,9 @@
 <!-- Our individual list item (hopefully a reusable partial) -->
 <!-- that manages the state of a to-do item -->
 <div
+  v-for="toDo of renderedItems"
   v-component="list-item"
-  v-data:to-do="{ 'id': 0, 'title': 'Learn Vivere' }"
+  v-bind:delete="deleteItem"
 >
 
   <!-- Each state has it's own "view" -->
@@ -17,9 +18,7 @@
     <!-- the tile from the server since the title can change -->
     <p
       v-text="toDo.title"
-      v-class:line-through="toDo.complete"
-      v-class:italic="toDo.complete"
-      v-class:text-gray="toDo.complete"
+      v-class:line-through.italic.text-gray="toDo.complete"
     ></p>
     <!-- Switch to edit mode (not allowed once we've completed the to-do) -->
     <button

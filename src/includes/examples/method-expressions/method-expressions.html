@@ -6,6 +6,11 @@
 
 <div v-event:click="acting = !acting" />
 
+<div v-event:click="color = acting ?? 'red'" />
+
+
+
+
 <div v-event:click="acting = waiting ? !acting : false" />
 
 

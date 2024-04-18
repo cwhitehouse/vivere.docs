@@ -16,17 +16,9 @@
     <option value="titleDesc">title: Z-A</option>
   </select>
 
-  <!-- v-filter and v-sort are special directives just for -->
-  <!-- dealing safely with a dynamic list of items. They -->
-  <!-- invoke methods on child components to automatically -->
-  <!-- sort and filter the DOM elements, respectively -->
-  <div
-    v-filter="'matchesFilter'"
-    v-sort="orderBy"
-    v-ref="items"
-  >
-    <!-- See list-item.html -->
-  </div>
+  <!-- v-for will instantly duplicate this element and create separate -->
+  <!-- components with separate data (see below!)                      -->
+  <list-item></list-item>
 
   <!-- The create button reveals the ability to create new to-dos -->
   <div>

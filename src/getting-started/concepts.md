@@ -14,7 +14,7 @@ next: getting-started/examples
 
 Components in Vivere exist as a data layer that manages and coordinates HTML elements with reactive data. A component is defined by assigning it a `v-component` property that matches a component you've registered via Javascript. Once initialized, that component manages reactive data, which can either be passed via HTML rendered via the server, or defined in Javascript on the Component.
 
-The root element of a Component is defined as the HTML element that deines the `v-component` attribute. The Component also includes all children of the root, up until any other `v-component` attribute is detected.
+The root element of a Component is defined as the HTML element that contains the `v-component` attribute. The Component also includes all children of the root, up until any other `v-component` attribute is detected.
 
 ```html
 <div>                             <!-- No component... -->
@@ -44,7 +44,7 @@ Vivere uses a reactivity system similar to other component based frameworks. Whe
 
 This makes sure that you can just point your Directives at any value you care about, and Vivere will take care of syncing those attributes with your properties. This also extends to `computed` properties, which allow you to write methods that process and combine any reactive data you are tracking.
 
-In addition to tracking changes to primitives like numbers and strings, Vivere also has special logic to handle array and object reactivity. For arrays, Vivere also listens for `push`, `pop`, `splice`, `shift` and `unshift` operations, and will automatically react to those events. Likewise, Vivere will automatically make new properties on reactive objects reactive, so the entire object tree can be listened to.
+In addition to tracking changes to primitives like numbers and strings, Vivere also has special logic to handle array and object reactivity. For arrays, Vivere also listens for `push`, `pop`, `splice`, `shift`, `unshift`, `reverse` and `sort` operations, and will automatically react to those events. Likewise, Vivere will automatically make new properties on reactive objects reactive, so the entire object tree can be listened to.
 
 #### Component Data
 
@@ -61,7 +61,7 @@ Computed properties allow you to define properties that are calculated based on 
 
 ## Expressions
 
-Most Vivere directives allow you to pass an `expression` as an argument. How these expressions are parsed varies depending on what the directive is expecting. Generally, these expressions represent a subset of Javascript, parsed directly by Vivere instead of say being passed to an `eval` statement. This allows us Vivere to help the parsing, by properly scoping what `this` is, and prevents us from executing potnetially malicious code.
+Most Vivere directives allow you to pass an `expression` as an argument. How these expressions are parsed varies depending on what the directive is expecting. Generally, these expressions represent a subset of Javascript, parsed directly by Vivere instead of say being passed to an `eval` statement. This allows us Vivere to help the parsing, by properly scoping what `this` is, and prevents us from executing potentially malicious code.
 
 Expressions are generally interpreted in one of three ways:
 

@@ -25,16 +25,28 @@ class List extends VivereComponent {
 
     switch (sortMode) {
       case 'idAsc':
-        return [['toDo.id'], ['asc']];
+        return ['id', true];
       case 'idDesc':
-        return [['toDo.id'], ['desc']];
+        return ['id', false];
       case 'titleAsc':
-        return [['toDo.title'], ['asc']];
+        return ['title', true];
       case 'titleDesc':
-        return [['toDo.title'], ['desc']];
+        return ['title', false];
       default:
         return null;
-    };
+    }
+  }
+
+  // Computed property that controls
+  // which items we want to render and
+  // in what order
+  get renderedItems() {
+    const { items, orderBy, filterText } = this;
+    const [key, ascending] = orderBy;
+
+    return items
+      .filter((i) => i.title.includes(filterText))
+      .toSorted((a,b) => a[key] > b[key] ? (ascending ? 1 : -1) : (ascending ? -1 : 1))
   }
 
   get validTitle() {
@@ -62,16 +74,20 @@ class List extends VivereComponent {
     if (!validTitle) return;
 
     // What we'd probably do here is post to the server
-    // and receive the fully rendered html for a to-do
-    // so we don't have to know how to render one
-    const html = axios.post('/to-dos', { title });
+    // and receive the new item as JSON
+    const item = axios.post('/to-dos', { title });
 
-    // $attach is a special method that attaches new html
-    // to the DOM via a named `ref` (items), and automatically
-    // parses all of the Vivere directives on the new HTML
-    this.$attach(html, 'items');
+    // We want to add our new item to the list to be rendered,
+    // v-for will take care of that
+    this.items.push(item);
 
     this.creating = false;
+  }
+
+  // Method for removing an item from our list
+  deleteItem(id) {
+    this.items = this.items
+      .filter((i) => i.id === id)
   }
 };
 Vivere.register('List', List);

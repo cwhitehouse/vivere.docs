@@ -1,10 +1,8 @@
 <div
   v-component
   v-data:text="null"
-  v-data:paragraph="null"
   v-data:selection="null"
   v-data:checked="false"
-  v-data:radio-selection="null"
   class="grid grid-cols-8 gap-x-4 gap-y-4"
 >
   <div class="col-span-3">
@@ -24,25 +22,6 @@
       v-event:click="text = 'Reset text...'"
       v-disabled="text === 'Reset text...'"
       class="button w-full"
-    >Reset</button>
-  </div>
-
-  <div class="col-span-3">
-    <textarea
-      v-sync="paragraph"
-      placeholder="Try me!"
-      class="max-w-full"
-    ></textarea>
-  </div>
-  <p
-    v-text="paragraph"
-    class="col-span-3 whitespace-pre-wrap break-all pt-1 mt-0.5 text-center"
-  ></p>
-  <div class="col-span-2">
-    <button
-      class="button w-full"
-      v-event:click="paragraph = 'Reset paragraph...'"
-      v-disabled="paragraph === 'Reset paragraph...'"
     >Reset</button>
   </div>
 

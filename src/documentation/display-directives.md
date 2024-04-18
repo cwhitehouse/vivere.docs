@@ -8,11 +8,38 @@ next: documentation/event-directives
 directives:
   if:
     name: v-if
+    modifier:
+      name: modifier
+      types:
+        - '"anim-x"'
+        - '"anim-y"'
+      description: An optional modifier that causes the element to animate in and out when its state changes
     value:
       name: expression
       types:
         - string
       description: An expression that evaluates to true to show this element, or false to remove it from the DOM
+  else-if:
+    name: v-else-if
+    modifier:
+      name: modifier
+      types:
+        - '"anim-x"'
+        - '"anim-y"'
+      description: An optional modifier that causes the element to animate in and out when its state changes
+    value:
+      name: expression
+      types:
+        - string
+      description: An expression that evaluates to true to show this element, or false to remove it from the DOM
+  else:
+    name: v-else
+    modifier:
+      name: modifier
+      types:
+        - '"anim-x"'
+        - '"anim-y"'
+      description: An optional modifier that causes the element to animate in and out when its state changes
   show:
     name: v-show
     value:
@@ -72,17 +99,65 @@ directives:
       types:
         - string
       description: An expression that is interpreted as a string that is used as the text for this element
+  html:
+    name: v-html
+    value:
+      name: expression
+      types:
+        - string
+      description: An expression that is interpreted as an HTML string that is attached to this element
+  src:
+    name: v-src
+    value:
+      name: expression
+      types:
+        - string
+        - 'null'
+      description: An expression that is interpreted as a src for an img element
+  attr:
+    name: v-attr
+    key:
+      name: attribute
+      types:
+        - string
+      description: The attribute we want to control for this elment
+    value:
+      name: expression
+      types:
+        - string
+        - 'null'
+      description: An expression that is interpreted as a value for our attribute
 ---
 
 # Display Directives
 
 #### Directives that manage how your HTML is rendered
 
+Display directives can generally be attached to any element, and can acess data from the component they are related to. Some directives (e.g. `v-disabled`, `v-href`) may only be valid on certain types of elements.
+
 <%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.if })) %>
 
 The `v-if` directive is used to control whether an element is rendered in the DOM. If the expression evaluates to true, we attach the element to the DOM, otherwise we remove it, but save it's location with an HTML comment.
 
 For convenience, `v-if` automatically removes the `hidden` attribute from the element when the directive is parsed. This allows you to hide conditionally rendered elements until Vivere has finished parsing.
+
+The `v-if` directive also prevents any directives attached to its ancestors from rendering. This is helpful for example if you only want to render content if an `object` exists, and want to freely reference properties of that object (e.g. in a `v-text` directive) without having to worry about `null` checks.
+
+<%- renderer.markdownSafe(include('/examples/example', { name: 'v-if' })) %>
+
+---
+
+<%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives['else-if'] })) %>
+
+The `v-else-if` directive works just like the `v-if` directive, but evaluates only if an immediately preceding `v-if` or `v-else-if` directive evalutes false first, and its expression evalutes to be `true`.
+
+<%- renderer.markdownSafe(include('/examples/example', { name: 'v-if' })) %>
+
+---
+
+<%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives['else-if'] })) %>
+
+The `v-else` directive renders content like a `v-if`, but ONLY if an immediately preceding `v-if` or `v-else-f` directive evaluates false first.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-if' })) %>
 
@@ -143,3 +218,21 @@ The `v-style` directive automatically updates a style attribute for the element 
 The `v-text` directive sets the text property of your element. It's useful for any dynamic text derived from component data that we cannot rely on the server to generate.
 
 <%- renderer.markdownSafe(include('/examples/example', { name: 'v-text' })) %>
+
+---
+
+<%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.html })) %>
+
+The `v-html` directive sets the `innerHTML` property of your element. It does not do any escpaing or safety checks, so be careful!
+
+---
+
+<%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.attr })) %>
+
+The `v-attr` directive sets the value of any generic attribute of an element. If you pass in `null`, the attribute will be removed; otherwise it will be set to whatever the `expression` evaluates to.
+
+---
+
+<%- renderer.markdownSafe(include('/documentation/directives/definition', { directive: directives.src })) %>
+
+The `v-src` directive sets the `src` property of an `img`. If you pass in `null` it will set the `src` to a blank string, otherwise it will be set to whatever the `expression` evaluates to.

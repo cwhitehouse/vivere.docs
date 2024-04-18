@@ -5,27 +5,11 @@ export default class extends VivereComponent {
 
   title = null;
 
-  toDo: { title: string } = { title: null };
-
-  filterText = null;
-
-  $passed = {
-    filterText: { default: null },
-  };
+  toDo: { id: string | number, title: string } = { id: -1, title: null };
 
   get validTitle(): boolean {
     const { title } = this;
     return title && !!title.trim();
-  }
-
-  get matchesFilter(): boolean {
-    const { filterText, toDo } = this;
-    const { title } = toDo;
-
-    if (filterText && !!filterText.trim())
-      return title.toLowerCase().includes(filterText.toLowerCase());
-
-    return true;
   }
 
   onStateChanged(): void {
@@ -47,6 +31,6 @@ export default class extends VivereComponent {
   }
 
   delete(): void {
-    this.$destroy();
+    this.$emit('delete', this.toDo.id);
   }
 }

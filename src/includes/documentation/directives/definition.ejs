@@ -3,7 +3,8 @@
   class="definition font-mono text-gray-500 dark:text-gray-400"
 >
   <p class="text-2xl">
-    <span class="text-indigo-600 dark:text-indigo-400"><%= directive.name %></span><% if (!!directive.key) { %><span>:</span><span class="text-pink-600 dark:text-pink-400">{<%= directive.key.name %>}</span><% if (!!directive.modifier) { %><span>.</span><span class="text-pink-600 dark:text-pink-400">{<%= directive.modifier.name %>}</span><% } %><% } %><% if (!!directive.value) { %><span>=</span><span>"<span class="text-pink-600 dark:text-pink-400">{<%= directive.value.name %>}</span>"</span><% } %>
+    <span class="text-indigo-600 dark:text-indigo-400">
+      <%= directive.name %></span><% if (!!directive.key) { %><span>:</span><span class="text-pink-600 dark:text-pink-400">{<%= directive.key.name %>}</span><% } %><% if (!!directive.modifier) { %><span>.</span><span class="text-pink-600 dark:text-pink-400">{<%= directive.modifier.name %>}</span><% } %><% if (!!directive.value) { %><span>=</span><span>"<span class="text-pink-600 dark:text-pink-400">{<%= directive.value.name %>}</span>"</span><% } %>
   </p>
   <div class="space-y-6 p-4 bg-indigo-50 dark:bg-gray-800 rounded mt-4 mb-6">
     <% ['key', 'modifier', 'value'].forEach((part) => { %>

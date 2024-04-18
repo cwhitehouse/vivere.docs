@@ -6,7 +6,10 @@
   ];
 %>
 
-<div v-component="to-do-list">
+<div
+  v-component="to-do-list"
+  v-data:items="<%= JSON.stringify(items) %>"
+>
   <div class="flex items-center pb-2">
     <input
       v-sync="filterText"
@@ -28,9 +31,7 @@
     v-filter="'matchesFilter'"
     v-ref="items"
   >
-    <% items.forEach(item => { %>
-      <%- include('/examples/to-do-list/_item', { toDo: item }) %>
-    <% }); %>
+    <%- include('/examples/to-do-list/_item') %>
   </div>
   <div class="mt-6">
     <button

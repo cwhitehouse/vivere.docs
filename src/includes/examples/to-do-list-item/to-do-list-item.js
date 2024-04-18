@@ -16,18 +16,6 @@ class ListItem extends VivereComponent {
     return !!title?.trim();
   }
 
-  // Invoked from the `v-filter` directive, this method
-  // returns true if this item should be shown
-  get matchesFilter() {
-    const { filterText, toDo } = this;
-    const { title } = toDo;
-
-    if (!!filterText?.trim())
-      return title.toLowerCase().includes(filterText.toLowerCase());
-
-    return true;
-  }
-
   // This watcher will automatically trigger
   // when the state changes
   onStateChanged() {
@@ -51,9 +39,9 @@ class ListItem extends VivereComponent {
   }
 
   delete() {
-    // `$destroy` is an internal vivere method that removes
-    // this component from the DOM and performs cleanup
-    this.$destroy();
+    // Tell our parent to remove this item
+    // from the list by emitting an event
+    this.$emit('delete', this.toDo.id);
   }
 };
 Vivere.register('ListItem', ListItem);

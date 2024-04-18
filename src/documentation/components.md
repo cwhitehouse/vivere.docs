@@ -4,6 +4,33 @@ title: Components
 
 previous: documentation/installation
 next: documentation/data-directives
+
+methods:
+  '$log':
+    name: '$log'
+    args:
+      - name: message
+        type: string
+  '$emit':
+    name: '$emit'
+    args:
+      - name: event
+        type: string
+      - name: '...args'
+  '$attach':
+    name: '$attach'
+    args:
+      - name: html
+        type: string
+      - name: ref
+        type: string
+  '$nextRender':
+    name: '$nextRender'
+    args:
+      - name: callback
+        type: function
+  '$forceRender':
+    name: '$forceRender'
 ---
 
 # Components
@@ -44,26 +71,11 @@ export default class {
 };
 ```
 
-## Passed
-
-The `passed` attribute on a component allows us to set up rules and expectations for data we expect to receive from a parent component. We can either set up requirements about what `passed` attributes need to exist or set up a default value to fallback to if that attribute is not present.
-
-```js
-export default class extends VivereComponent {
-  count = 0;
-
-  $passed = {
-    active: { required: true },
-    count: {},
-  };
-};
-```
-
 ## Computed
 
 Computed properties allow us to have data derived from other data properties. We define a method that computes the property, and it will automatically be executed if the property is accessed, and any of the properties it depends upon have changes since the last time it was accessed.
 
-Computed properties keep track of every data attribute and any other computed properties they depend on to kepe their value updated, but cached to avoid unecessary computation. We access `computed` properties as we would any other data attribute on the component.
+Computed properties keep track of every data attribute and any other computed properties they depend on to keep their value updated, but the value is cached to avoid unecessary computation. We access `computed` properties as we would any other data attribute on the component.
 
 ```js
 export default class extends VivereComponent {
@@ -94,7 +106,7 @@ They can be particularly helpful for listening to `passed` properties, so we kno
 export default class extends VivereComponent {
   editing = false;
 
-  onEditingChanged() {
+  onEditingChanged(oldValue) {
     if (this.editing)
       this.$nextRender(() => this.$refs.editingInput.focus());
   }
@@ -128,13 +140,19 @@ There are a handful of reserved method names that are automatically invoked duri
     // Connection is the first step in the lifecycle
     // when a component is instantiated
     beforeConnected() {
-      // Invoked once the component is instantiated,
-      // before the first render has completed
+      // Invoked before the component is full set up,
+      // before directives are set up, and before any
+      // data has become reactive
     }
     connected() {
       // Invoked after the component is instantiated,
-      // once the first render has completed
+      // directives are setup, and data is reactive
     }
+
+    // The first render occurs after the DOM is full loaded,
+    // and vivere has finished a first pass of rendering every
+    // directive
+    rendered() {}
 
     // Dehydration happens before a Turbo page change, so we cache
     // a version  of the page will all of our directives in place
@@ -158,3 +176,50 @@ There are a handful of reserved method names that are automatically invoked duri
     }
   };
 ```
+
+## Internal Properties
+
+`$element`
+
+The HTML element at the root of this component. This is the element where the `v-component` directive was set.
+
+`$parent`
+
+The `$parent` component of this component. That is, the component that was last defined in the HTML above this component, or `null` if this is the first component in the tree.
+
+`$children`
+
+Any components defined below this component in the DOM heirarchy. As they are insantiated they will be associated with this component. Their `$parent` will be this component.
+
+`$refs`
+
+Any elments exposed via  a `v-ref` directive will be available inside the `$refs` object. For example, after setting up `<input v-ref="input">`, the component can reference that input element by `$refs.input`.
+
+
+## Internal Methods
+
+Components have access to a number of internal helper methods for performing more complicated operations.
+
+
+<%- renderer.markdownSafe(include('/documentation/method', { method: methods.$log })) %>
+
+Equivalent of `console.log`, that can be called from directives (since `this` is assumed before every method call).
+
+
+<%- renderer.markdownSafe(include('/documentation/method', { method: methods.$emit })) %>
+
+Attempt to send a message to a parent component.
+
+<%- renderer.markdownSafe(include('/documentation/method', { method: methods.$attach })) %>
+
+Inserts new HTML into the document, appending it as a child to one of your `$refs`. That html will subsequently be parsed by vivere to set up any new components, directives, etc. that are found in the new HTML. Therefore, this is the best way to attach any HTML (e.g. downloaded from the server post-rendering) that we want to also use vivere.
+
+<%- renderer.markdownSafe(include('/documentation/method', { method: methods.$nextRender })) %>
+
+Passes a callback method that will be invoked next time a render is completed. When a render is queued (e.g. when data used by a display directive changes), vivere will request an animation frame and batch all render updates together so that each directive is only rendered once per cycle and renders happen at an appropriate time.
+
+Therefore, this method comes in handy if, for example, some data changed that will reveal an input that you want to focus on. The input appearing won't happen until rendering is complete, so when we see the data change we have to wait til `nextRender` in order to focus on that input element.
+
+<%- renderer.markdownSafe(include('/documentation/method', { method: methods.$forceRender })) %>
+
+Though this should never be necessary, `$forceRender` causes all of a component's directives to immediately queue for rendering. On the next animation frame, every directive will re-render itself.

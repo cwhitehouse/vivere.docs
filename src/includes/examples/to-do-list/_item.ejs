@@ -7,9 +7,9 @@
 -->
 
 <div
+  v-for="toDo of renderedItems"
   v-component="to-do-item"
-  v-data:to-do="<%= JSON.stringify(toDo) %>"
-  v-pass:filter-text
+  v-bind:delete="removeItem"
   class="flex items-stretch h-12"
 >
 
