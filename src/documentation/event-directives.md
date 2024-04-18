@@ -40,9 +40,20 @@ directives:
 
 The `v-event` directive handles all default event handling for Vivere components. Whichever `event` is passed to the directive, is automatically interepreted as a valid event to be passed to `element.addEventListener`. The `expression` can either be a basic javascription expression, e.g. an assignement to a data attribute, or the name of a method that will be invoked on the component.
 
+The `v-event` directive can also listen for a special class of events, specifically lifecycle callbacks from our component. These special events ignore modifiers, as they are registered directly with the component:
+  - `beforeConnected`
+  - `connected`
+  - `rendered`
+  - `beforeDehydrated`
+  - `beforeDestroyed`
+
+Note that you cannot listen for `dehydrated` and `destroyed` because the directive is no longer available at that time those methods are invoked.
+
+## Event Modifiers
+
 We can pass a `modifier` to this directive to change some the behavior of some events:
 
-## All Events
+### All Events
 
 `cancel`
 
@@ -58,13 +69,13 @@ When the `delay` modifier is applied, the event handler is invoked after a `setT
 
 This can be particularly helpful for dealing with `click.outside` events, where we might want to not handle clicks outside a modal until we're sure the modal is visible.
 
-## Click Events
+### Click Events
 
 `outside`
 
 When the `outside` modifier is applied, the event listens to clicks anywhere on the document EXCEPT clicks on the element or its descendants. This can be useful for things like automatically dismissing a modal.
 
-## Keyboard Events
+### Keyboard Events
 
 You can use modifiers to automatically filter keyboard events to only certain keys, to avoid having to run checks on `keyCode` in your own code.
 

@@ -65,7 +65,7 @@
   @apply mt-8;
 }
 
-.markdown > p > code, .markdown > code {
+.markdown > p > code, .markdown > code, .markdown > ul > li > code {
   @apply text-sm font-mono text-indigo-800 bg-indigo-100 rounded px-1;
   padding-top: 2px; padding-bottom: 2px;
 }
@@ -155,4 +155,14 @@
 }
 .markdown .example + p {
   @apply mt-8;
+}
+
+.markdown ul {
+  @apply list-disc ml-8;
+}
+.markdown p + ul {
+  @apply mt-2;
+}
+.markdown ul + p {
+  @apply mt-6;
 }

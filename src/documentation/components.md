@@ -31,6 +31,8 @@ methods:
         type: function
   '$forceRender':
     name: '$forceRender'
+  '$destroy':
+    name: '$destroy'
 ---
 
 # Components
@@ -223,3 +225,7 @@ Therefore, this method comes in handy if, for example, some data changed that wi
 <%- renderer.markdownSafe(include('/documentation/method', { method: methods.$forceRender })) %>
 
 Though this should never be necessary, `$forceRender` causes all of a component's directives to immediately queue for rendering. On the next animation frame, every directive will re-render itself.
+
+<%- renderer.markdownSafe(include('/documentation/method', { method: methods.$destroy })) %>
+
+Removes this component from the document. This component's elements are removed from the DOM, the component is destroyed, invoking all appropriate callbacks, and then it shuts down all of its directives and child components, etc. etc. This is the proper way to remove a component from the document to make sure nothing breaks or data gets orphaned.
