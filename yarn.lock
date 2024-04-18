@@ -5144,10 +5144,10 @@ vendors@^1.0.0:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vivere@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/vivere/-/vivere-0.6.1.tgz#b58090b72d94261f1e48f604b2a7cf93759e66b0"
-  integrity sha512-HL21+TQU7N972eGHuO7uzd06kHBqcpfnREMJkoNhuHfvqpLv61DwkAQyhq5BR3Ac/Dz/rrIGjrFOOcDn7YKiMA==
+vivere@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/vivere/-/vivere-0.6.2.tgz#9160549f02b0ddc36f7f3600af1c8bd576a2e3b2"
+  integrity sha512-yqFIPpvJwEud4jzjqm/aTUhnyqQ5Hl63IVO9bk8yeUcwS5Qi95J2eIfdshhQ3ZXMpXMR7OzVuw6i5EBwuO9hpQ==
   dependencies:
     "@jsep-plugin/assignment" "^1.1.0"
     jsep "1.1.0"
